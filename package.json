@@ -15,5 +15,12 @@
   "bugs": {
     "url": "https://github.com/ozzielo/myFlix-client/issues"
   },
-  "homepage": "https://github.com/ozzielo/myFlix-client#readme"
+  "homepage": "https://github.com/ozzielo/myFlix-client#readme",
+  "dependencies": {
+    "react": "^17.0.2",
+    "react-dom": "^17.0.2"
+  },
+  "devDependencies": {
+    "sass": "^1.32.11"
+  }
 }
