@@ -51103,7 +51103,9 @@ function LoginView(props) {
     size: "lg",
     type: "submit",
     onClick: handleSubmit
-  }, "Login")))))) // <form>
+  }, "Login"), /*#__PURE__*/_react.default.createElement("a", {
+    href: "url"
+  }, "Not a member?")))))) // <form>
   //     <label>
   //         Username:
   //         <input type="text" value={username} onChange={e => setUsername(e.target.value)} />

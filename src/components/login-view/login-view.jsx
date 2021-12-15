@@ -55,7 +55,8 @@ export function LoginView(props) {
 
                             <Button className="loginButton" variant="secondary" size="lg" type="submit" onClick={handleSubmit}>
                                 Login
-            </Button>
+                            </Button>
+                            <a href="url">Not a member?</a>
                         </Form>
                     </Card.Body>
                 </Card>
