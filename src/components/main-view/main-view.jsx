@@ -6,6 +6,7 @@ import { MovieCard } from '../movie-card/movie-card';
 import { MovieView } from '../movie-view/movie-view';
 import { RegistrationView } from '../registration-view/registration-view';
 import { Navbar, Nav, Container, Row, Col } from 'react-bootstrap';
+import { BrowserRouter as Router, Route } from "react-router-dom";
 
 export class MainView extends React.Component {
     constructor() {
@@ -32,6 +33,16 @@ export class MainView extends React.Component {
             });
     }
 
+    componentDidMount() {
+        let accessToken = localStorage.getItem('token');
+        if (accessToken !== null) {
+            this.setState({
+                user: localStorage.getItem('user')
+            });
+            this.getMovies(accessToken);
+        }
+    }
+
     setSelectedMovie(movie) {
         this.setState({
             selectedMovie: movie
@@ -44,7 +55,7 @@ export class MainView extends React.Component {
         });
     }
 
-    onLoggedIn(data) {
+    onLoggedIn(authData) {
         console.log(authData);
         this.setState({
             user: authData.user.Username
@@ -53,6 +64,14 @@ export class MainView extends React.Component {
         localStorage.setItem('token', authData.token);
         localStorage.setItem('user', authData.user.Username);
         this.getMovie(authData.token);
+    }
+
+    onLoggedOut() {
+        localStorage.removeItem('token');
+        localStorage.removeItem('user');
+        this.setState({
+            user: null
+        });
     }
     render() {
         const { movies, selectedMovie, user, register } = this.state;
@@ -75,7 +94,7 @@ export class MainView extends React.Component {
                             <Nav className="me-auto">
                                 <Nav.Link href="#home">Movies</Nav.Link>
                                 <Nav.Link href="#user">Profile</Nav.Link>
-                                <Nav.Link href="#logout">Logout</Nav.Link>
+                                <Nav.Link onClick={() => { this.onLoggedOut() }} href="#logout">Logout</Nav.Link>
                             </Nav>
                         </Navbar.Collapse>
                     </Container>
