@@ -33,7 +33,7 @@ export function RegistrationView(props) {
                 <Card className="loginCard" style={{ width: '28rem' }}>
                     <Card.Body>
                         <Card.Title className="text-center">Welcome to MyFlix.</Card.Title>
-                        <Card.Subtitle className="mb-2 text-muted text-center">Please Login</Card.Subtitle>
+                        <Card.Subtitle className="mb-2 text-muted text-center">Please Register</Card.Subtitle>
 
                         <Form >
                             <Form.Group controlId="formUsername">

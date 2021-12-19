@@ -37975,7 +37975,7 @@ function RegistrationView(props) {
                                     columnNumber: 25
                                 },
                                 __self: this,
-                                children: "Please Login"
+                                children: "Please Register"
                             }),
                             /*#__PURE__*/ _jsxRuntime.jsxs(_reactBootstrap.Form, {
                                 __source: {
