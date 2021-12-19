@@ -6,7 +6,7 @@ import { MovieCard } from '../movie-card/movie-card';
 import { MovieView } from '../movie-view/movie-view';
 import { RegistrationView } from '../registration-view/registration-view';
 import { Navbar, Nav, Container, Row, Col } from 'react-bootstrap';
-import { BrowserRouter as Router, Route } from "react-router-dom";
+import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
 
 export class MainView extends React.Component {
     constructor() {
@@ -49,11 +49,11 @@ export class MainView extends React.Component {
         });
     }
 
-    onRegistration(register) {
-        this.setState({
-            register,
-        });
-    }
+    // onRegistration(register) {
+    //     this.setState({
+    //         register,
+    //     });
+    // }
 
     onLoggedIn(authData) {
         console.log(authData);
@@ -74,55 +74,84 @@ export class MainView extends React.Component {
         });
     }
     render() {
-        const { movies, selectedMovie, user, register } = this.state;
+        const { movies, user } = this.state;
 
-        if (!register) return (<RegistrationView onRegistration={(register) => this.onRegistration(register)} />);
+        // if (!register) return (<RegistrationView onRegistration={(register) => this.onRegistration(register)} />);
 
-        if (!user) return <LoginView onLoggedIn={user => this.onLoggedIn(user)} />;
+        if (!user) return <Row>
+            <Col>
+                <LoginView onLoggedIn={user => this.onLoggedIn(user)} />
+            </Col>
+        </Row>
 
         // if (selectedMovie) return <MovieView movie={selectedMovie} />;
 
         if (movies.length === 0) return <div className="main-view" />;
         return (
+            <Router>
 
-            <div className="main-view">
-                <Navbar bg="navColor" variant="dark" expand="lg">
-                    <Container fluid>
-                        <Navbar.Brand href="#home">MyFlix</Navbar.Brand>
-                        <Navbar.Toggle aria-controls="basic-navbar-nav" />
-                        <Navbar.Collapse id="basic-navbar-nav">
-                            <Nav className="me-auto">
-                                <Nav.Link href="#home">Movies</Nav.Link>
-                                <Nav.Link href="#user">Profile</Nav.Link>
-                                <Nav.Link onClick={() => { this.onLoggedOut() }} href="#logout">Logout</Nav.Link>
-                            </Nav>
-                        </Navbar.Collapse>
-                    </Container>
-                </Navbar>
-                <div>
-                    <Container>
-                        {selectedMovie
-                            ? (
-                                <Row className="justify-content-lg-center">
-                                    <Col lg={9} >
-                                        <MovieView movie={selectedMovie} onBackClick={newSelectedMovie => { this.setSelectedMovie(newSelectedMovie); }} />
+                <div className="main-view">
+                    <Row className="main-view justify-content-md-center">
+
+                        <Routes exact path="/"
+                            render={() => {
+                                return movies.map(m => (
+                                    <Col md={3} key={m._id}>
+                                        <MovieCard movie={m} />
                                     </Col>
-                                </Row>
-                            )
-                            : (
-                                <Row className="justify-content-lg-center">
-                                    { movies.map(movie => (
-                                        <Col xs={6} md={4} lg={3} >
-                                            <MovieCard key={movie._id} movieData={movie} onMovieClick={(newSelectedMovie) => { this.setSelectedMovie(newSelectedMovie) }} />
-                                        </Col>
-                                    ))
-                                    }
-                                </Row>
-                            )
-                        }
-                    </Container>
+                                ))
+                            }}
+                        />
+                        <Routes>
+                            <Route path="/movies/:movieId" render={({ match }) => {
+                                return <Col md={8}>
+                                    <MovieView movie={movies.find(m => m._id === match.params.movieId)} />
+                                </Col>
+                            }} />
+                        </Routes>
+
+                    </Row>
                 </div>
-            </div>
+            </Router>
+
+            // <div className="main-view">
+            //     <Navbar bg="navColor" variant="dark" expand="lg">
+            //         <Container fluid>
+            //             <Navbar.Brand href="#home">MyFlix</Navbar.Brand>
+            //             <Navbar.Toggle aria-controls="basic-navbar-nav" />
+            //             <Navbar.Collapse id="basic-navbar-nav">
+            //                 <Nav className="me-auto">
+            //                     <Nav.Link href="#home">Movies</Nav.Link>
+            //                     <Nav.Link href="#user">Profile</Nav.Link>
+            //                     <Nav.Link onClick={() => { this.onLoggedOut() }} href="#logout">Logout</Nav.Link>
+            //                 </Nav>
+            //             </Navbar.Collapse>
+            //         </Container>
+            //     </Navbar>
+            //     <div>
+            //         <Container>
+            //             {selectedMovie
+            //                 ? (
+            //                     <Row className="justify-content-lg-center">
+            //                         <Col lg={9} >
+            //                             <MovieView movie={selectedMovie} onBackClick={newSelectedMovie => { this.setSelectedMovie(newSelectedMovie); }} />
+            //                         </Col>
+            //                     </Row>
+            //                 )
+            //                 : (
+            //                     <Row className="justify-content-lg-center">
+            //                         { movies.map(movie => (
+            //                             <Col xs={6} md={4} lg={3} >
+            //                                 <MovieCard key={movie._id} movieData={movie} onMovieClick={(newSelectedMovie) => { this.setSelectedMovie(newSelectedMovie) }} />
+            //                             </Col>
+            //                         ))
+            //                         }
+            //                     </Row>
+            //                 )
+            //             }
+            //         </Container>
+            //     </div>
+            // </div>
         );
     }
 }
