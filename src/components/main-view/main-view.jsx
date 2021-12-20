@@ -18,14 +18,17 @@ export class MainView extends React.Component {
 
     }
 
-    componentDidMount() {
-        axios.get('https://oscarsmyflixapp.herokuapp.com/movies')
+    getMovies(token) {
+        axios.get('https://oscarsmyflixapp.herokuapp.com/movies', {
+            headers: { Authorization: `Bearer ${token}` }
+        })
             .then(response => {
+                // Assign the result to the state
                 this.setState({
                     movies: response.data
                 });
             })
-            .catch(error => {
+            .catch(function (error) {
                 console.log(error);
             });
     }
@@ -36,15 +39,38 @@ export class MainView extends React.Component {
         });
     }
 
+    componentDidMount() {
+        let accessToken = localStorage.getItem('token');
+        if (accessToken !== null) {
+            this.setState({
+                user: localStorage.getItem('user')
+            });
+            this.getMovies(accessToken);
+        }
+    }
+
     onRegistration(register) {
         this.setState({
             register,
         });
     }
 
-    onLoggedIn(user) {
+    onLoggedIn(authData) {
+        console.log(authData);
         this.setState({
-            user
+            user: authData.user.Username
+        });
+
+        localStorage.setItem('token', authData.token);
+        localStorage.setItem('user', authData.user.Username);
+        this.getMovies(authData.token);
+    }
+
+    onLoggedOut() {
+        localStorage.removeItem('token');
+        localStorage.removeItem('user');
+        this.setState({
+            user: null
         });
     }
     render() {
@@ -68,7 +94,7 @@ export class MainView extends React.Component {
                             <Nav className="me-auto">
                                 <Nav.Link href="#home">Movies</Nav.Link>
                                 <Nav.Link href="#user">Profile</Nav.Link>
-                                <Nav.Link href="#logout">Logout</Nav.Link>
+                                <Nav.Link onClick={() => { this.onLoggedOut() }} href="#logout">Logout</Nav.Link>
                             </Nav>
                         </Navbar.Collapse>
                     </Container>

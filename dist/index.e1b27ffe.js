@@ -22760,12 +22760,17 @@ class MainView extends _reactDefault.default.Component {
             user: null
         };
     }
-    componentDidMount() {
-        _axiosDefault.default.get('https://oscarsmyflixapp.herokuapp.com/movies').then((response)=>{
+    getMovies(token) {
+        _axiosDefault.default.get('https://oscarsmyflixapp.herokuapp.com/movies', {
+            headers: {
+                Authorization: `Bearer ${token}`
+            }
+        }).then((response)=>{
+            // Assign the result to the state
             this.setState({
                 movies: response.data
             });
-        }).catch((error)=>{
+        }).catch(function(error) {
             console.log(error);
         });
     }
@@ -22774,14 +22779,34 @@ class MainView extends _reactDefault.default.Component {
             selectedMovie: movie1
         });
     }
+    componentDidMount() {
+        let accessToken = localStorage.getItem('token');
+        if (accessToken !== null) {
+            this.setState({
+                user: localStorage.getItem('user')
+            });
+            this.getMovies(accessToken);
+        }
+    }
     onRegistration(register) {
         this.setState({
             register
         });
     }
-    onLoggedIn(user) {
+    onLoggedIn(authData) {
+        console.log(authData);
         this.setState({
-            user
+            user: authData.user.Username
+        });
+        localStorage.setItem('token', authData.token);
+        localStorage.setItem('user', authData.user.Username);
+        this.getMovies(authData.token);
+    }
+    onLoggedOut() {
+        localStorage.removeItem('token');
+        localStorage.removeItem('user');
+        this.setState({
+            user: null
         });
     }
     render() {
@@ -22791,7 +22816,7 @@ class MainView extends _reactDefault.default.Component {
             ,
             __source: {
                 fileName: "src/components/main-view/main-view.jsx",
-                lineNumber: 53,
+                lineNumber: 79,
                 columnNumber: 32
             },
             __self: this
@@ -22801,7 +22826,7 @@ class MainView extends _reactDefault.default.Component {
             ,
             __source: {
                 fileName: "src/components/main-view/main-view.jsx",
-                lineNumber: 55,
+                lineNumber: 81,
                 columnNumber: 27
             },
             __self: this
@@ -22811,7 +22836,7 @@ class MainView extends _reactDefault.default.Component {
             className: "main-view",
             __source: {
                 fileName: "src/components/main-view/main-view.jsx",
-                lineNumber: 59,
+                lineNumber: 85,
                 columnNumber: 41
             },
             __self: this
@@ -22820,7 +22845,7 @@ class MainView extends _reactDefault.default.Component {
             className: "main-view",
             __source: {
                 fileName: "src/components/main-view/main-view.jsx",
-                lineNumber: 62,
+                lineNumber: 88,
                 columnNumber: 13
             },
             __self: this,
@@ -22831,7 +22856,7 @@ class MainView extends _reactDefault.default.Component {
                     expand: "lg",
                     __source: {
                         fileName: "src/components/main-view/main-view.jsx",
-                        lineNumber: 63,
+                        lineNumber: 89,
                         columnNumber: 17
                     },
                     __self: this,
@@ -22839,7 +22864,7 @@ class MainView extends _reactDefault.default.Component {
                         fluid: true,
                         __source: {
                             fileName: "src/components/main-view/main-view.jsx",
-                            lineNumber: 64,
+                            lineNumber: 90,
                             columnNumber: 21
                         },
                         __self: this,
@@ -22848,7 +22873,7 @@ class MainView extends _reactDefault.default.Component {
                                 href: "#home",
                                 __source: {
                                     fileName: "src/components/main-view/main-view.jsx",
-                                    lineNumber: 65,
+                                    lineNumber: 91,
                                     columnNumber: 25
                                 },
                                 __self: this,
@@ -22858,7 +22883,7 @@ class MainView extends _reactDefault.default.Component {
                                 "aria-controls": "basic-navbar-nav",
                                 __source: {
                                     fileName: "src/components/main-view/main-view.jsx",
-                                    lineNumber: 66,
+                                    lineNumber: 92,
                                     columnNumber: 25
                                 },
                                 __self: this
@@ -22867,7 +22892,7 @@ class MainView extends _reactDefault.default.Component {
                                 id: "basic-navbar-nav",
                                 __source: {
                                     fileName: "src/components/main-view/main-view.jsx",
-                                    lineNumber: 67,
+                                    lineNumber: 93,
                                     columnNumber: 25
                                 },
                                 __self: this,
@@ -22875,7 +22900,7 @@ class MainView extends _reactDefault.default.Component {
                                     className: "me-auto",
                                     __source: {
                                         fileName: "src/components/main-view/main-view.jsx",
-                                        lineNumber: 68,
+                                        lineNumber: 94,
                                         columnNumber: 29
                                     },
                                     __self: this,
@@ -22884,7 +22909,7 @@ class MainView extends _reactDefault.default.Component {
                                             href: "#home",
                                             __source: {
                                                 fileName: "src/components/main-view/main-view.jsx",
-                                                lineNumber: 69,
+                                                lineNumber: 95,
                                                 columnNumber: 33
                                             },
                                             __self: this,
@@ -22894,17 +22919,20 @@ class MainView extends _reactDefault.default.Component {
                                             href: "#user",
                                             __source: {
                                                 fileName: "src/components/main-view/main-view.jsx",
-                                                lineNumber: 70,
+                                                lineNumber: 96,
                                                 columnNumber: 33
                                             },
                                             __self: this,
                                             children: "Profile"
                                         }),
                                         /*#__PURE__*/ _jsxRuntime.jsx(_reactBootstrap.Nav.Link, {
+                                            onClick: ()=>{
+                                                this.onLoggedOut();
+                                            },
                                             href: "#logout",
                                             __source: {
                                                 fileName: "src/components/main-view/main-view.jsx",
-                                                lineNumber: 71,
+                                                lineNumber: 97,
                                                 columnNumber: 33
                                             },
                                             __self: this,
@@ -22919,14 +22947,14 @@ class MainView extends _reactDefault.default.Component {
                 /*#__PURE__*/ _jsxRuntime.jsx("div", {
                     __source: {
                         fileName: "src/components/main-view/main-view.jsx",
-                        lineNumber: 76,
+                        lineNumber: 102,
                         columnNumber: 17
                     },
                     __self: this,
                     children: /*#__PURE__*/ _jsxRuntime.jsx(_reactBootstrap.Container, {
                         __source: {
                             fileName: "src/components/main-view/main-view.jsx",
-                            lineNumber: 77,
+                            lineNumber: 103,
                             columnNumber: 21
                         },
                         __self: this,
@@ -22934,7 +22962,7 @@ class MainView extends _reactDefault.default.Component {
                             className: "justify-content-lg-center",
                             __source: {
                                 fileName: "src/components/main-view/main-view.jsx",
-                                lineNumber: 80,
+                                lineNumber: 106,
                                 columnNumber: 33
                             },
                             __self: this,
@@ -22942,7 +22970,7 @@ class MainView extends _reactDefault.default.Component {
                                 lg: 9,
                                 __source: {
                                     fileName: "src/components/main-view/main-view.jsx",
-                                    lineNumber: 81,
+                                    lineNumber: 107,
                                     columnNumber: 37
                                 },
                                 __self: this,
@@ -22953,7 +22981,7 @@ class MainView extends _reactDefault.default.Component {
                                     },
                                     __source: {
                                         fileName: "src/components/main-view/main-view.jsx",
-                                        lineNumber: 82,
+                                        lineNumber: 108,
                                         columnNumber: 41
                                     },
                                     __self: this
@@ -22963,7 +22991,7 @@ class MainView extends _reactDefault.default.Component {
                             className: "justify-content-lg-center",
                             __source: {
                                 fileName: "src/components/main-view/main-view.jsx",
-                                lineNumber: 87,
+                                lineNumber: 113,
                                 columnNumber: 33
                             },
                             __self: this,
@@ -22973,7 +23001,7 @@ class MainView extends _reactDefault.default.Component {
                                     lg: 3,
                                     __source: {
                                         fileName: "src/components/main-view/main-view.jsx",
-                                        lineNumber: 89,
+                                        lineNumber: 115,
                                         columnNumber: 41
                                     },
                                     __self: this,
@@ -22984,7 +23012,7 @@ class MainView extends _reactDefault.default.Component {
                                         },
                                         __source: {
                                             fileName: "src/components/main-view/main-view.jsx",
-                                            lineNumber: 90,
+                                            lineNumber: 116,
                                             columnNumber: 45
                                         },
                                         __self: this
@@ -24542,6 +24570,8 @@ var _propTypes = require("prop-types");
 var _propTypesDefault = parcelHelpers.interopDefault(_propTypes);
 var _loginViewScss = require("./login-view.scss");
 var _reactBootstrap = require("react-bootstrap");
+var _axios = require("axios");
+var _axiosDefault = parcelHelpers.interopDefault(_axios);
 var _s = $RefreshSig$();
 function LoginView(props) {
     _s();
@@ -24549,13 +24579,20 @@ function LoginView(props) {
     const [password, setPassword] = _react.useState('');
     const handleSubmit = (e)=>{
         e.preventDefault();
-        console.log(username, password);
-        props.onLoggedIn(username);
+        _axiosDefault.default.post('https://oscarsmyflixapp.herokuapp.com/login', {
+            Username: username,
+            Password: password
+        }).then((response)=>{
+            const data = response.data;
+            props.onLoggedIn(data);
+        }).catch((e)=>{
+            console.log('no such user');
+        });
     };
     return(/*#__PURE__*/ _jsxRuntime.jsxs("div", {
         __source: {
             fileName: "src/components/login-view/login-view.jsx",
-            lineNumber: 18,
+            lineNumber: 28,
             columnNumber: 9
         },
         __self: this,
@@ -24566,7 +24603,7 @@ function LoginView(props) {
                 expand: "lg",
                 __source: {
                     fileName: "src/components/login-view/login-view.jsx",
-                    lineNumber: 19,
+                    lineNumber: 29,
                     columnNumber: 13
                 },
                 __self: this,
@@ -24574,7 +24611,7 @@ function LoginView(props) {
                     fluid: true,
                     __source: {
                         fileName: "src/components/login-view/login-view.jsx",
-                        lineNumber: 20,
+                        lineNumber: 30,
                         columnNumber: 17
                     },
                     __self: this,
@@ -24583,7 +24620,7 @@ function LoginView(props) {
                             href: "#home",
                             __source: {
                                 fileName: "src/components/login-view/login-view.jsx",
-                                lineNumber: 21,
+                                lineNumber: 31,
                                 columnNumber: 21
                             },
                             __self: this,
@@ -24593,7 +24630,7 @@ function LoginView(props) {
                             "aria-controls": "basic-navbar-nav",
                             __source: {
                                 fileName: "src/components/login-view/login-view.jsx",
-                                lineNumber: 22,
+                                lineNumber: 32,
                                 columnNumber: 21
                             },
                             __self: this
@@ -24602,7 +24639,7 @@ function LoginView(props) {
                             id: "basic-navbar-nav",
                             __source: {
                                 fileName: "src/components/login-view/login-view.jsx",
-                                lineNumber: 23,
+                                lineNumber: 33,
                                 columnNumber: 21
                             },
                             __self: this,
@@ -24610,7 +24647,7 @@ function LoginView(props) {
                                 className: "me-auto",
                                 __source: {
                                     fileName: "src/components/login-view/login-view.jsx",
-                                    lineNumber: 24,
+                                    lineNumber: 34,
                                     columnNumber: 25
                                 },
                                 __self: this,
@@ -24618,7 +24655,7 @@ function LoginView(props) {
                                     href: "#login",
                                     __source: {
                                         fileName: "src/components/login-view/login-view.jsx",
-                                        lineNumber: 25,
+                                        lineNumber: 35,
                                         columnNumber: 29
                                     },
                                     __self: this,
@@ -24634,7 +24671,7 @@ function LoginView(props) {
                 className: "loginContainer",
                 __source: {
                     fileName: "src/components/login-view/login-view.jsx",
-                    lineNumber: 30,
+                    lineNumber: 40,
                     columnNumber: 13
                 },
                 __self: this,
@@ -24645,14 +24682,14 @@ function LoginView(props) {
                     },
                     __source: {
                         fileName: "src/components/login-view/login-view.jsx",
-                        lineNumber: 31,
+                        lineNumber: 41,
                         columnNumber: 17
                     },
                     __self: this,
                     children: /*#__PURE__*/ _jsxRuntime.jsxs(_reactBootstrap.Card.Body, {
                         __source: {
                             fileName: "src/components/login-view/login-view.jsx",
-                            lineNumber: 32,
+                            lineNumber: 42,
                             columnNumber: 21
                         },
                         __self: this,
@@ -24661,7 +24698,7 @@ function LoginView(props) {
                                 className: "text-center",
                                 __source: {
                                     fileName: "src/components/login-view/login-view.jsx",
-                                    lineNumber: 33,
+                                    lineNumber: 43,
                                     columnNumber: 25
                                 },
                                 __self: this,
@@ -24671,7 +24708,7 @@ function LoginView(props) {
                                 className: "mb-2 text-muted text-center",
                                 __source: {
                                     fileName: "src/components/login-view/login-view.jsx",
-                                    lineNumber: 34,
+                                    lineNumber: 44,
                                     columnNumber: 25
                                 },
                                 __self: this,
@@ -24680,7 +24717,7 @@ function LoginView(props) {
                             /*#__PURE__*/ _jsxRuntime.jsxs(_reactBootstrap.Form, {
                                 __source: {
                                     fileName: "src/components/login-view/login-view.jsx",
-                                    lineNumber: 36,
+                                    lineNumber: 46,
                                     columnNumber: 25
                                 },
                                 __self: this,
@@ -24689,7 +24726,7 @@ function LoginView(props) {
                                         controlId: "formUsername",
                                         __source: {
                                             fileName: "src/components/login-view/login-view.jsx",
-                                            lineNumber: 37,
+                                            lineNumber: 47,
                                             columnNumber: 29
                                         },
                                         __self: this,
@@ -24697,7 +24734,7 @@ function LoginView(props) {
                                             /*#__PURE__*/ _jsxRuntime.jsx(_reactBootstrap.Form.Label, {
                                                 __source: {
                                                     fileName: "src/components/login-view/login-view.jsx",
-                                                    lineNumber: 38,
+                                                    lineNumber: 48,
                                                     columnNumber: 33
                                                 },
                                                 __self: this,
@@ -24710,7 +24747,7 @@ function LoginView(props) {
                                                 ,
                                                 __source: {
                                                     fileName: "src/components/login-view/login-view.jsx",
-                                                    lineNumber: 39,
+                                                    lineNumber: 49,
                                                     columnNumber: 33
                                                 },
                                                 __self: this
@@ -24721,7 +24758,7 @@ function LoginView(props) {
                                         controlId: "formPassword",
                                         __source: {
                                             fileName: "src/components/login-view/login-view.jsx",
-                                            lineNumber: 46,
+                                            lineNumber: 56,
                                             columnNumber: 29
                                         },
                                         __self: this,
@@ -24729,7 +24766,7 @@ function LoginView(props) {
                                             /*#__PURE__*/ _jsxRuntime.jsx(_reactBootstrap.Form.Label, {
                                                 __source: {
                                                     fileName: "src/components/login-view/login-view.jsx",
-                                                    lineNumber: 47,
+                                                    lineNumber: 57,
                                                     columnNumber: 33
                                                 },
                                                 __self: this,
@@ -24743,7 +24780,7 @@ function LoginView(props) {
                                                 ,
                                                 __source: {
                                                     fileName: "src/components/login-view/login-view.jsx",
-                                                    lineNumber: 48,
+                                                    lineNumber: 58,
                                                     columnNumber: 33
                                                 },
                                                 __self: this
@@ -24758,7 +24795,7 @@ function LoginView(props) {
                                         onClick: handleSubmit,
                                         __source: {
                                             fileName: "src/components/login-view/login-view.jsx",
-                                            lineNumber: 56,
+                                            lineNumber: 66,
                                             columnNumber: 29
                                         },
                                         __self: this,
@@ -24768,7 +24805,7 @@ function LoginView(props) {
                                         href: "url",
                                         __source: {
                                             fileName: "src/components/login-view/login-view.jsx",
-                                            lineNumber: 59,
+                                            lineNumber: 69,
                                             columnNumber: 29
                                         },
                                         __self: this,
@@ -24800,7 +24837,7 @@ $RefreshReg$(_c, "LoginView");
   window.$RefreshReg$ = prevRefreshReg;
   window.$RefreshSig$ = prevRefreshSig;
 }
-},{"react/jsx-runtime":"6Ds2u","react":"4mchR","prop-types":"2bysO","./login-view.scss":"hONex","react-bootstrap":"9qMdX","@parcel/transformer-js/src/esmodule-helpers.js":"ciiiV","@parcel/transformer-react-refresh-wrap/lib/helpers/helpers.js":"9pz13"}],"2bysO":[function(require,module,exports) {
+},{"react/jsx-runtime":"6Ds2u","react":"4mchR","prop-types":"2bysO","./login-view.scss":"hONex","react-bootstrap":"9qMdX","@parcel/transformer-js/src/esmodule-helpers.js":"ciiiV","@parcel/transformer-react-refresh-wrap/lib/helpers/helpers.js":"9pz13","axios":"1IeuP"}],"2bysO":[function(require,module,exports) {
 var ReactIs = require('react-is');
 // By explicitly using `prop-types` you are opting into new development behavior.
 // http://fb.me/prop-types-in-prod
