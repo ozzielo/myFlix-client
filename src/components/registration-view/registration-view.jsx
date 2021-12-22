@@ -17,6 +17,7 @@ export function RegistrationView(props) {
     };
 
     return (
+
         <div>
             <Navbar bg="navColor" variant="dark" expand="lg">
                 <Container fluid>
@@ -100,5 +101,5 @@ export function RegistrationView(props) {
     );
 }
 RegistrationView.propTypes = {
-    onRegistration: PropTypes.func.isRequired,
+    // onRegistration: PropTypes.func.isRequired,
 };
