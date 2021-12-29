@@ -17,6 +17,28 @@ export function LoginView(props) {
         })
             .then(response => {
                 const data = response.data;
+
+
+                const userData = data.user
+                console.log(userData)
+
+                // from a list of movie ids (favorite movie IDs)
+                // need to get the movie data for each ID
+
+                // once we have a list of movies
+                // can make movie cards
+
+
+                const favoriteMovieIDs = userData.FavoriteMovies
+
+                const targetMovies = []
+
+                favoriteMovieIDs.forEach((movieID) => {
+                    console.log('@', movieID)
+                })
+
+
+
                 props.onLoggedIn(data);
             })
             .catch(e => {

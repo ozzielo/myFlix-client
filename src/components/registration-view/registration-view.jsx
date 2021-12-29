@@ -2,6 +2,7 @@ import React, { useState } from 'react';
 import PropTypes from "prop-types";
 import './registration-view.scss';
 import { Navbar, Nav, Form, Button, Card, CardGroup, Container, Row, Col } from 'react-bootstrap';
+import { Link } from "react-router-dom";
 
 export function RegistrationView(props) {
     const [username, setUsername] = useState('');
@@ -73,6 +74,9 @@ export function RegistrationView(props) {
                             <Button className="loginButton" variant="secondary" size="lg" type="submit" onClick={handleSubmit}>
                                 Register
                         </Button>
+                            <Link to={`/`}>
+                                <a href="/">Already a member?</a>
+                            </Link>
                         </Form>
                     </Card.Body>
                 </Card>

@@ -1,34 +1,34 @@
 import React from 'react';
 import PropTypes from "prop-types";
 import { MovieCard } from '../movie-card/movie-card';
-
 // import './movie-view.scss';
 import { Container, Row, Col, Button, Card } from 'react-bootstrap';
 // import { Link } from 'react-router-dom';
 
-export class DirectorView extends React.Component {
+export class GenreView extends React.Component {
     render() {
-        const { movieData, director, onBackClick } = this.props
+        const { movieData, genre, onBackClick } = this.props
+
+        console.log(movieData)
+
+        // either we generate the list of movies here
+        // or we recieve it as a prop
 
         return (
             <Container>
                 <Card>
-                    <h4>Director</h4>
+                    <h4>Genre</h4>
                     <Card.Body>
                         <div>
                             <span className="label">Name: </span>
-                            <span className="value">{director.Name}</span>
+                            <span className="value">{genre.Name}</span>
                         </div>
                         <div>
-                            <span className="label">Bio: </span>
-                            <span className="value">{director.Bio}</span>
+                            <span className="label">Description: </span>
+                            <span className="value">{genre.Description}</span>
                         </div>
-                        <div>
-                            <span className="label">Born: </span>
-                            <span className="value">{director.Birth}</span>
-                        </div>
-                        <div className="director-button-div">
-                            <Button className="director-button" bg="dark" variant="dark" onClick={() => { onBackClick(null); }}>Back</Button>
+                        <div className="genre-button-div">
+                            <Button className="genre-button" bg="dark" variant="dark" onClick={() => { onBackClick(null); }}>Back</Button>
                         </div>
                     </Card.Body>
                 </Card>
@@ -40,15 +40,15 @@ export class DirectorView extends React.Component {
                         </Col>
                     ))}
                 </Row>
+
             </Container>
         );
     }
 }
 
-DirectorView.proptypes = {
-    Director: PropTypes.shape({
+GenreView.proptypes = {
+    Genre: PropTypes.shape({
         Name: PropTypes.string.isRequired,
-        Bio: PropTypes.string,
-        Birth: PropTypes.number,
+        Description: PropTypes.string,
     }).isRequired,
 };
