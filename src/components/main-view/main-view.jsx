@@ -18,10 +18,13 @@ export class MainView extends React.Component {
         this.state = {
             movies: [],
             selectedMovie: null,
-            user: null
-        };
+            user: null,
+            favorites: []
+        }
+        this.getUser = this.getUser.bind(this)
 
     }
+
 
     getMovies(token) {
         axios.get('https://oscarsmyflixapp.herokuapp.com/movies', {
@@ -38,12 +41,6 @@ export class MainView extends React.Component {
             });
     }
 
-    setSelectedMovie(movie) {
-        this.setState({
-            selectedMovie: movie
-        });
-    }
-
     componentDidMount() {
         let accessToken = localStorage.getItem('token');
         if (accessToken !== null) {
@@ -53,6 +50,13 @@ export class MainView extends React.Component {
             this.getMovies(accessToken);
         }
     }
+
+    setSelectedMovie(movie) {
+        this.setState({
+            selectedMovie: movie
+        });
+    }
+
 
     onRegistration(register) {
         this.setState({
@@ -82,26 +86,26 @@ export class MainView extends React.Component {
     getUser() {
         const user = localStorage.getItem("user");
         const token = localStorage.getItem("token");
-        axios
-            .get(`https://oscarsmyflixapp.herokuapp.com/users/${user}`, {
-                headers: { Authorization: `Bearer ${token}` },
-            })
+        axios.get(`https://oscarsmyflixapp.herokuapp.com/users/${user}`, {
+            headers: { Authorization: `Bearer ${token}` },
+        })
             .then((response) => {
                 this.setState({
-                    name: response.data.Name,
                     username: response.data.Username,
                     password: response.data.Password,
                     email: response.data.Email,
                     birthday: response.data.Birthday,
-                    favorites: response.data.Favorites
+                    favorites: response.data.FavoriteMovies
                 });
             })
             .catch(function (error) {
                 console.log(error);
             });
     }
+
+
     render() {
-        const { movies, selectedMovie, user, register } = this.state;
+        const { movies, username, password, email, birthday, favorites, user, register } = this.state;
         //  if (!user) return <Row>
         //     <Col>
         //         <LoginView onLoggedIn={user => this.onLoggedIn(user)} />
@@ -132,8 +136,13 @@ export class MainView extends React.Component {
                 <div className="main-view">
                     <Row className="main-view justify-content-md-center">
                         <Route exact path="/" render={() => {
+
+
                             return movies.map(m => (
                                 <Col xs={6} md={4} lg={3} key={m._id}>
+                                    <br />
+                                    <br />
+
                                     <MovieCard movieData={m} />
                                 </Col>
                             ))
@@ -142,6 +151,8 @@ export class MainView extends React.Component {
                             if (movies.length === 0) return <div className="main-view" />;
                             return <Col lg={9}>
                                 <NavBarView user={user} />
+                                <br />
+                                <br />
                                 <MovieView movie={movies.find(m => m._id === match.params.movieId)}
                                     onBackClick={() => history.goBack()} />
                             </Col>
@@ -172,6 +183,9 @@ export class MainView extends React.Component {
                             if (movies.length === 0) return <div className="main-view" />;
                             return <Col lg={9}>
                                 <NavBarView user={user} />
+                                <br />
+                                <br />
+                                <br />
                                 <GenreView movieData={targetGenreMovies} genre={movies.find(m => m.Genre.Name === match.params.name).Genre} onBackClick={() => history.goBack()} />
                             </Col>
 
@@ -198,27 +212,33 @@ export class MainView extends React.Component {
                             if (movies.length === 0) return <div className="main-view" />;
                             return <Col lg={9}>
                                 <NavBarView user={user} />
+                                <br />
+                                <br />
+                                <br />
+
+
                                 <DirectorView movieData={targetDirectorMovies} director={movies.find(m => m.Director.Name === match.params.name).Director} onBackClick={() => history.goBack()} />
-                            </Col>
+                        ch    </Col>
                         }
 
                         } />
                         <Route exact path="/users/:username" render={({ match, history }) => {
                             console.log('Gott Userrrrr')
+
+
+
                             if (!user) return <LoginView onLoggedIn={user => this.onLoggedIn(user)} />;
                             if (movies.length === 0) return <div className="main-view" />;
                             return <Col lg={9}>
-                                <div>"Hi Guys</div>
-                                <div>"Hi Guys</div>
-                                <div>"Hi Guys</div>
-                                <div>"Hi Guys</div>
-                                <div>"Hi Guys</div>
-                                <div>"Hi Guys</div>
+
                                 <NavBarView user={user} />
-                                {/* <UserView user={user} password={password} email={email} name={name}
-                                    birthday={birthday} favorites={favorites} movies={movies}
+                                <br />
+                                <br />
+                                <br />
+                                <UserView username={username} password={password} email={email}
+                                    birthday={birthday} favorites={favorites} movieData={movies}
                                     getUser={this.getUser}
-                                    onBackClick={() => history.goBack()} removeMovie={(_id) => this.onRemoveFavorite(_id)} /> */}
+                                    onBackClick={() => history.goBack()} removeMovie={(_id) => this.onRemoveFavorite(_id)} />
 
 
 

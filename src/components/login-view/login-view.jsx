@@ -8,42 +8,52 @@ import { Link } from "react-router-dom";
 export function LoginView(props) {
     const [username, setUsername] = useState('');
     const [password, setPassword] = useState('');
+    const [usernameErr, setUsernameErr] = useState('');
+    const [passwordErr, setPasswordErr] = useState('');
+
+    const validate = () => {
+        let isReq = true;
+        if (!username) {
+            setUsernameErr('Username Required');
+            isReq = false;
+        } else if (username.length < 2) {
+            setUsernameErr('Username must be atleast 2 characters');
+            isReq = false;
+        }
+        if (!password) {
+            setPasswordErr('Password Required');
+            isReq = false;
+        } else if (password.length < 6) {
+            setPasswordErr('Password must be atleast 6 characters long');
+            isReq = false;
+        }
+
+        return isReq;
+    }
 
     const handleSubmit = (e) => {
         e.preventDefault();
-        axios.post('https://oscarsmyflixapp.herokuapp.com/login', {
-            Username: username,
-            Password: password
-        })
-            .then(response => {
-                const data = response.data;
-
-
-                const userData = data.user
-                console.log(userData)
-
-                // from a list of movie ids (favorite movie IDs)
-                // need to get the movie data for each ID
-
-                // once we have a list of movies
-                // can make movie cards
-
-
-                const favoriteMovieIDs = userData.FavoriteMovies
-
-                const targetMovies = []
-
-                favoriteMovieIDs.forEach((movieID) => {
-                    console.log('@', movieID)
-                })
-
-
-
-                props.onLoggedIn(data);
+        const isReq = validate();
+        if (isReq) {
+            axios.post('https://oscarsmyflixapp.herokuapp.com/login', {
+                Username: username,
+                Password: password
             })
-            .catch(e => {
-                console.log('no such user')
-            });
+                .then(response => {
+                    const data = response.data;
+
+
+                    const userData = data.user
+                    console.log(userData)
+
+                    props.onLoggedIn(data);
+                })
+                .catch(e => {
+                    console.log('no such user')
+                });
+
+        }
+
 
     };
 
@@ -71,9 +81,11 @@ export function LoginView(props) {
                                 <Form.Label>Username:</Form.Label>
                                 <Form.Control
                                     type="text"
+                                    value={username}
                                     placeholder="Enter Username"
                                     onChange={e => setUsername(e.target.value)}
                                 />
+                                {usernameErr && <p>{usernameErr}</p>}
                             </Form.Group>
 
                             <Form.Group controlId="formPassword">
@@ -81,9 +93,11 @@ export function LoginView(props) {
                                 <Form.Control
                                     className="mb-3"
                                     type="password"
+                                    value={password}
                                     placeholder="Enter Password"
                                     onChange={e => setPassword(e.target.value)}
                                 />
+                                {passwordErr && <p>{passwordErr}</p>}
                             </Form.Group>
 
                             <Button className="loginButton" variant="secondary" size="lg" type="submit" onClick={handleSubmit}>

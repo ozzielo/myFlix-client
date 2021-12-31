@@ -8,11 +8,11 @@ export class UserView extends React.Component {
     constructor() {
         super();
         this.state = {
-            username: null,
-            password: null,
-            email: null,
-            birthday: null,
-            favorites: [],
+            // username: null,
+            // password: null,
+            // email: null,
+            // birthday: null,
+
         };
     }
 
@@ -20,10 +20,33 @@ export class UserView extends React.Component {
         this.props.getUser()
     }
 
-    onRemoveFavorite = (e, movie) => {
+    // getUser() {
+    //     const user = localStorage.getItem("user");
+    //     const token = localStorage.getItem("token");
+    //     axios
+    //         .get(`https://oscarsmyflixapp.herokuapp.com/users/${user}`, {
+    //             headers: { Authorization: `Bearer ${token}` },
+    //         })
+    //         .then((response) => {
+    //             const data = response.data;
+    //             console.log(data)
+    //             this.setState({
+    //                 Username: response.data.Username,
+    //                 Password: response.data.Password,
+    //                 Email: response.data.Email,
+    //                 Birthday: response.data.Birthday,
+    //                 Favorites: response.data.FavoriteMovies
+    //             });
+    //         })
+    //         .catch(function (error) {
+    //             console.log(error);
+    //         });
+    // };
+
+    onRemoveFavorite = (m) => {
         const user = localStorage.getItem('user');
         const token = localStorage.getItem('token');
-        axios.delete(`https://oscarsmyflixapp.herokuapp.com/users/${user}/Favorites/${this.props.movie._id}`,
+        axios.delete(`https://oscarsmyflixapp.herokuapp.com/users/${user}/Favorites/${m._id}`,
             { headers: { Authorization: `Bearer ${token}` } }
 
 
@@ -32,6 +55,7 @@ export class UserView extends React.Component {
                 console.log(response);
                 alert("Removed from Favorites")
                 this.componentDidMount();
+                window.location.reload();
             })
             .catch(function (error) {
                 console.log(error);
@@ -65,7 +89,6 @@ export class UserView extends React.Component {
         const token = localStorage.getItem('token');
         axios.put(`https://oscarsmyflixapp.herokuapp.com/users/${user}`,
             {
-                Name: this.state.Name,
                 Username: this.state.Username,
                 Password: this.state.Password,
                 Email: this.state.Email,
@@ -75,7 +98,6 @@ export class UserView extends React.Component {
         )
             .then((response) => {
                 this.setState({
-                    Name: response.data.Name,
                     Username: response.data.Username,
                     Password: response.data.Password,
                     Email: response.data.Email,
@@ -115,8 +137,26 @@ export class UserView extends React.Component {
     }
 
     render() {
-        const { name, username, email, birthday, favorites } = this.props
+        const { username, email, birthday, favorites, movieData } = this.props
+        console.log(movieData)
         console.log(this.props)
+        let favoriteMovies = []
+
+        movieData.forEach((movie) => {
+            const movieID = movie._id
+            favorites.forEach((favoriteMovieID) => {
+                console.log(favoriteMovieID);
+
+                if (movieID === favoriteMovieID) {
+                    // if this is the case, then we have found a movie for target genre
+                    favoriteMovies.push(movie)
+                }
+            })
+
+        })
+        console.log(favoriteMovies);
+
+
 
         return (
             <Container>
@@ -124,7 +164,6 @@ export class UserView extends React.Component {
                     <h1>My Profile</h1>
                     <Card.Body>
                         <div>
-                            <h4>Name: {name}</h4>
                             <h4>Username: {username}</h4>
                             <h4>Email: {email}</h4>
                             <h4>Birthday: {birthday}</h4>
@@ -138,6 +177,79 @@ export class UserView extends React.Component {
                         </div> */}
                     </Card.Body>
                 </Card>
+                <div className="profileInformation">
+                    <Form className="formDisplay" onSubmit={(e) => this.editUser(e)}>
+                        <div>
+                            <h3>EDIT PROFILE</h3>
+                        </div>
+                        <Form.Group>
+                            Username
+              <Form.Control type='text' name="Username" placeholder="New Username" onChange={(e) => this.setUsername(e.target.value)} required />
+                        </Form.Group>
+
+                        <Form.Group>
+                            Password
+              <Form.Control type='password' name="Password" placeholder="New Password" onChange={(e) => this.setPassword(e.target.value)} required />
+
+                        </Form.Group>
+                        <Form.Group>
+                            Email Address
+              <Form.Control type='email' name="Email" placeholder="New Email" onChange={(e) => this.setEmail(e.target.value)} required />
+
+                        </Form.Group>
+                        <Form.Group>
+                            Birthday
+              <Form.Control type='date' name="Birthday" onChange={(e) => this.setBirthday(e.target.value)} />
+
+                        </Form.Group>
+                        <div className="marginSpacer">
+                            <Button variant="success" type="submit" >Update</Button>
+                        </div>
+                    </Form>
+                </div>
+                <Row>
+                    <Col className="acc-btns mt-1">
+                        <Button size="md" variant="outline-danger" type="submit" ml="4" onClick={() => this.deleteUser()} >Delete Account</Button>
+                    </Col>
+
+                </Row>
+
+                <h3 className="favorite-Movies-title">Favorite Movies</h3>
+                <Row>
+
+                    {favoriteMovies.map(m => (
+                        <Col xs={6} md={4} lg={3} key={m._id}>
+                            <br />
+                            <br />
+
+                            <MovieCard movieData={m} />
+                            <Button bg="dark" variant="secondary" className="unfavorite-button" onClick={() => this.onRemoveFavorite(m)}>
+                                Delete From Favorites
+                </Button>
+                        </Col>
+                    ))}
+
+                    {/* {favorites && favorites.map((movieData) => (
+                        <Col xs={6} md={4} lg={3} key={movieData._id}>
+                            <MovieCard movieData={movieData} />
+                        </Col>
+                    ))} */}
+
+                    {/* {favorites && favorites.map((movieID) => {
+                        console.log('m', movieID)
+                        let favoriteMovies = []
+
+                        movieData.forEach((element) => {
+                            const movieKey = element._id
+                            const
+
+                        })
+
+                        return <Col xs={6} md={4} lg={3} key={movieData._id}>
+                            <MovieCard movieData={movieData} />
+                        </Col>
+                    })} */}
+                </Row>
 
 
             </Container>
