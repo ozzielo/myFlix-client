@@ -161,8 +161,9 @@ export class UserView extends React.Component {
         return (
             <Container>
                 <Card>
-                    <h1>My Profile</h1>
+
                     <Card.Body>
+                        <Card.Title>MY PROFILE</Card.Title>
                         <div>
                             <h4>Username: {username}</h4>
                             <h4>Email: {email}</h4>
@@ -178,9 +179,10 @@ export class UserView extends React.Component {
                     </Card.Body>
                 </Card>
                 <div className="profileInformation">
+                    <br />
                     <Form className="formDisplay" onSubmit={(e) => this.editUser(e)}>
                         <div>
-                            <h3>EDIT PROFILE</h3>
+                            <h6>EDIT PROFILE</h6>
                         </div>
                         <Form.Group>
                             Username

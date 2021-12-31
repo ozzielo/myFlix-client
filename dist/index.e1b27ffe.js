@@ -40768,153 +40768,151 @@ class DirectorView extends _reactDefault.default.Component {
             },
             __self: this,
             children: [
-                /*#__PURE__*/ _jsxRuntime.jsxs(_reactBootstrap.Card, {
+                /*#__PURE__*/ _jsxRuntime.jsx(_reactBootstrap.Card, {
                     __source: {
                         fileName: "src/components/director-view/director-view.jsx",
                         lineNumber: 15,
                         columnNumber: 17
                     },
                     __self: this,
-                    children: [
-                        /*#__PURE__*/ _jsxRuntime.jsx("h4", {
-                            __source: {
-                                fileName: "src/components/director-view/director-view.jsx",
-                                lineNumber: 16,
-                                columnNumber: 21
-                            },
-                            __self: this,
-                            children: "Director"
-                        }),
-                        /*#__PURE__*/ _jsxRuntime.jsxs(_reactBootstrap.Card.Body, {
-                            __source: {
-                                fileName: "src/components/director-view/director-view.jsx",
-                                lineNumber: 17,
-                                columnNumber: 21
-                            },
-                            __self: this,
-                            children: [
-                                /*#__PURE__*/ _jsxRuntime.jsxs("div", {
-                                    __source: {
-                                        fileName: "src/components/director-view/director-view.jsx",
-                                        lineNumber: 18,
-                                        columnNumber: 25
-                                    },
-                                    __self: this,
-                                    children: [
-                                        /*#__PURE__*/ _jsxRuntime.jsx("span", {
-                                            className: "label",
-                                            __source: {
-                                                fileName: "src/components/director-view/director-view.jsx",
-                                                lineNumber: 19,
-                                                columnNumber: 29
-                                            },
-                                            __self: this,
-                                            children: "Name: "
-                                        }),
-                                        /*#__PURE__*/ _jsxRuntime.jsx("span", {
-                                            className: "value",
-                                            __source: {
-                                                fileName: "src/components/director-view/director-view.jsx",
-                                                lineNumber: 20,
-                                                columnNumber: 29
-                                            },
-                                            __self: this,
-                                            children: director.Name
-                                        })
-                                    ]
-                                }),
-                                /*#__PURE__*/ _jsxRuntime.jsxs("div", {
-                                    __source: {
-                                        fileName: "src/components/director-view/director-view.jsx",
-                                        lineNumber: 22,
-                                        columnNumber: 25
-                                    },
-                                    __self: this,
-                                    children: [
-                                        /*#__PURE__*/ _jsxRuntime.jsx("span", {
-                                            className: "label",
-                                            __source: {
-                                                fileName: "src/components/director-view/director-view.jsx",
-                                                lineNumber: 23,
-                                                columnNumber: 29
-                                            },
-                                            __self: this,
-                                            children: "Bio: "
-                                        }),
-                                        /*#__PURE__*/ _jsxRuntime.jsx("span", {
-                                            className: "value",
-                                            __source: {
-                                                fileName: "src/components/director-view/director-view.jsx",
-                                                lineNumber: 24,
-                                                columnNumber: 29
-                                            },
-                                            __self: this,
-                                            children: director.Bio
-                                        })
-                                    ]
-                                }),
-                                /*#__PURE__*/ _jsxRuntime.jsxs("div", {
-                                    __source: {
-                                        fileName: "src/components/director-view/director-view.jsx",
-                                        lineNumber: 26,
-                                        columnNumber: 25
-                                    },
-                                    __self: this,
-                                    children: [
-                                        /*#__PURE__*/ _jsxRuntime.jsx("span", {
-                                            className: "label",
-                                            __source: {
-                                                fileName: "src/components/director-view/director-view.jsx",
-                                                lineNumber: 27,
-                                                columnNumber: 29
-                                            },
-                                            __self: this,
-                                            children: "Born: "
-                                        }),
-                                        /*#__PURE__*/ _jsxRuntime.jsx("span", {
-                                            className: "value",
-                                            __source: {
-                                                fileName: "src/components/director-view/director-view.jsx",
-                                                lineNumber: 28,
-                                                columnNumber: 29
-                                            },
-                                            __self: this,
-                                            children: director.Birth
-                                        })
-                                    ]
-                                }),
-                                /*#__PURE__*/ _jsxRuntime.jsx("div", {
-                                    className: "director-button-div",
-                                    __source: {
-                                        fileName: "src/components/director-view/director-view.jsx",
-                                        lineNumber: 30,
-                                        columnNumber: 25
-                                    },
-                                    __self: this,
-                                    children: /*#__PURE__*/ _jsxRuntime.jsx(_reactBootstrap.Button, {
-                                        className: "director-button",
-                                        bg: "dark",
-                                        variant: "dark",
-                                        onClick: ()=>{
-                                            onBackClick(null);
-                                        },
+                    children: /*#__PURE__*/ _jsxRuntime.jsxs(_reactBootstrap.Card.Body, {
+                        __source: {
+                            fileName: "src/components/director-view/director-view.jsx",
+                            lineNumber: 17,
+                            columnNumber: 21
+                        },
+                        __self: this,
+                        children: [
+                            /*#__PURE__*/ _jsxRuntime.jsx(_reactBootstrap.Card.Title, {
+                                __source: {
+                                    fileName: "src/components/director-view/director-view.jsx",
+                                    lineNumber: 18,
+                                    columnNumber: 25
+                                },
+                                __self: this,
+                                children: "DIRECTOR"
+                            }),
+                            /*#__PURE__*/ _jsxRuntime.jsxs("div", {
+                                __source: {
+                                    fileName: "src/components/director-view/director-view.jsx",
+                                    lineNumber: 19,
+                                    columnNumber: 25
+                                },
+                                __self: this,
+                                children: [
+                                    /*#__PURE__*/ _jsxRuntime.jsx("span", {
+                                        className: "label",
                                         __source: {
                                             fileName: "src/components/director-view/director-view.jsx",
-                                            lineNumber: 31,
+                                            lineNumber: 20,
                                             columnNumber: 29
                                         },
                                         __self: this,
-                                        children: "Back"
+                                        children: "Name: "
+                                    }),
+                                    /*#__PURE__*/ _jsxRuntime.jsx("span", {
+                                        className: "value",
+                                        __source: {
+                                            fileName: "src/components/director-view/director-view.jsx",
+                                            lineNumber: 21,
+                                            columnNumber: 29
+                                        },
+                                        __self: this,
+                                        children: director.Name
                                     })
+                                ]
+                            }),
+                            /*#__PURE__*/ _jsxRuntime.jsxs("div", {
+                                __source: {
+                                    fileName: "src/components/director-view/director-view.jsx",
+                                    lineNumber: 23,
+                                    columnNumber: 25
+                                },
+                                __self: this,
+                                children: [
+                                    /*#__PURE__*/ _jsxRuntime.jsx("span", {
+                                        className: "label",
+                                        __source: {
+                                            fileName: "src/components/director-view/director-view.jsx",
+                                            lineNumber: 24,
+                                            columnNumber: 29
+                                        },
+                                        __self: this,
+                                        children: "Bio: "
+                                    }),
+                                    /*#__PURE__*/ _jsxRuntime.jsx("span", {
+                                        className: "value",
+                                        __source: {
+                                            fileName: "src/components/director-view/director-view.jsx",
+                                            lineNumber: 25,
+                                            columnNumber: 29
+                                        },
+                                        __self: this,
+                                        children: director.Bio
+                                    })
+                                ]
+                            }),
+                            /*#__PURE__*/ _jsxRuntime.jsxs("div", {
+                                __source: {
+                                    fileName: "src/components/director-view/director-view.jsx",
+                                    lineNumber: 27,
+                                    columnNumber: 25
+                                },
+                                __self: this,
+                                children: [
+                                    /*#__PURE__*/ _jsxRuntime.jsx("span", {
+                                        className: "label",
+                                        __source: {
+                                            fileName: "src/components/director-view/director-view.jsx",
+                                            lineNumber: 28,
+                                            columnNumber: 29
+                                        },
+                                        __self: this,
+                                        children: "Born: "
+                                    }),
+                                    /*#__PURE__*/ _jsxRuntime.jsx("span", {
+                                        className: "value",
+                                        __source: {
+                                            fileName: "src/components/director-view/director-view.jsx",
+                                            lineNumber: 29,
+                                            columnNumber: 29
+                                        },
+                                        __self: this,
+                                        children: director.Birth
+                                    })
+                                ]
+                            }),
+                            /*#__PURE__*/ _jsxRuntime.jsx("div", {
+                                className: "director-button-div",
+                                __source: {
+                                    fileName: "src/components/director-view/director-view.jsx",
+                                    lineNumber: 31,
+                                    columnNumber: 25
+                                },
+                                __self: this,
+                                children: /*#__PURE__*/ _jsxRuntime.jsx(_reactBootstrap.Button, {
+                                    className: "director-button",
+                                    bg: "dark",
+                                    variant: "dark",
+                                    onClick: ()=>{
+                                        onBackClick(null);
+                                    },
+                                    __source: {
+                                        fileName: "src/components/director-view/director-view.jsx",
+                                        lineNumber: 32,
+                                        columnNumber: 29
+                                    },
+                                    __self: this,
+                                    children: "Back"
                                 })
-                            ]
-                        })
-                    ]
+                            })
+                        ]
+                    })
                 }),
                 /*#__PURE__*/ _jsxRuntime.jsx(_reactBootstrap.Row, {
                     __source: {
                         fileName: "src/components/director-view/director-view.jsx",
-                        lineNumber: 35,
+                        lineNumber: 36,
                         columnNumber: 17
                     },
                     __self: this,
@@ -40924,7 +40922,7 @@ class DirectorView extends _reactDefault.default.Component {
                             lg: 3,
                             __source: {
                                 fileName: "src/components/director-view/director-view.jsx",
-                                lineNumber: 38,
+                                lineNumber: 39,
                                 columnNumber: 25
                             },
                             __self: this,
@@ -40932,7 +40930,7 @@ class DirectorView extends _reactDefault.default.Component {
                                 movieData: m,
                                 __source: {
                                     fileName: "src/components/director-view/director-view.jsx",
-                                    lineNumber: 39,
+                                    lineNumber: 40,
                                     columnNumber: 29
                                 },
                                 __self: this
@@ -40966,7 +40964,6 @@ $parcel$ReactRefreshHelpers$ec38.prelude(module);
 try {
 var parcelHelpers = require("@parcel/transformer-js/src/esmodule-helpers.js");
 parcelHelpers.defineInteropFlag(exports);
-// import { Link } from 'react-router-dom';
 parcelHelpers.export(exports, "GenreView", ()=>GenreView
 );
 var _jsxRuntime = require("react/jsx-runtime");
@@ -40975,7 +40972,7 @@ var _reactDefault = parcelHelpers.interopDefault(_react);
 var _propTypes = require("prop-types");
 var _propTypesDefault = parcelHelpers.interopDefault(_propTypes);
 var _movieCard = require("../movie-card/movie-card");
-// import './movie-view.scss';
+// import './genre-view.scss';
 var _reactBootstrap = require("react-bootstrap");
 class GenreView extends _reactDefault.default.Component {
     render() {
@@ -40991,123 +40988,121 @@ class GenreView extends _reactDefault.default.Component {
             },
             __self: this,
             children: [
-                /*#__PURE__*/ _jsxRuntime.jsxs(_reactBootstrap.Card, {
+                /*#__PURE__*/ _jsxRuntime.jsx(_reactBootstrap.Card, {
                     __source: {
                         fileName: "src/components/genre-view/genre-view.jsx",
                         lineNumber: 19,
                         columnNumber: 17
                     },
                     __self: this,
-                    children: [
-                        /*#__PURE__*/ _jsxRuntime.jsx("h4", {
-                            __source: {
-                                fileName: "src/components/genre-view/genre-view.jsx",
-                                lineNumber: 20,
-                                columnNumber: 21
-                            },
-                            __self: this,
-                            children: "Genre"
-                        }),
-                        /*#__PURE__*/ _jsxRuntime.jsxs(_reactBootstrap.Card.Body, {
-                            __source: {
-                                fileName: "src/components/genre-view/genre-view.jsx",
-                                lineNumber: 21,
-                                columnNumber: 21
-                            },
-                            __self: this,
-                            children: [
-                                /*#__PURE__*/ _jsxRuntime.jsxs("div", {
-                                    __source: {
-                                        fileName: "src/components/genre-view/genre-view.jsx",
-                                        lineNumber: 22,
-                                        columnNumber: 25
-                                    },
-                                    __self: this,
-                                    children: [
-                                        /*#__PURE__*/ _jsxRuntime.jsx("span", {
-                                            className: "label",
-                                            __source: {
-                                                fileName: "src/components/genre-view/genre-view.jsx",
-                                                lineNumber: 23,
-                                                columnNumber: 29
-                                            },
-                                            __self: this,
-                                            children: "Name: "
-                                        }),
-                                        /*#__PURE__*/ _jsxRuntime.jsx("span", {
-                                            className: "value",
-                                            __source: {
-                                                fileName: "src/components/genre-view/genre-view.jsx",
-                                                lineNumber: 24,
-                                                columnNumber: 29
-                                            },
-                                            __self: this,
-                                            children: genre.Name
-                                        })
-                                    ]
-                                }),
-                                /*#__PURE__*/ _jsxRuntime.jsxs("div", {
-                                    __source: {
-                                        fileName: "src/components/genre-view/genre-view.jsx",
-                                        lineNumber: 26,
-                                        columnNumber: 25
-                                    },
-                                    __self: this,
-                                    children: [
-                                        /*#__PURE__*/ _jsxRuntime.jsx("span", {
-                                            className: "label",
-                                            __source: {
-                                                fileName: "src/components/genre-view/genre-view.jsx",
-                                                lineNumber: 27,
-                                                columnNumber: 29
-                                            },
-                                            __self: this,
-                                            children: "Description: "
-                                        }),
-                                        /*#__PURE__*/ _jsxRuntime.jsx("span", {
-                                            className: "value",
-                                            __source: {
-                                                fileName: "src/components/genre-view/genre-view.jsx",
-                                                lineNumber: 28,
-                                                columnNumber: 29
-                                            },
-                                            __self: this,
-                                            children: genre.Description
-                                        })
-                                    ]
-                                }),
-                                /*#__PURE__*/ _jsxRuntime.jsx("div", {
-                                    className: "genre-button-div",
-                                    __source: {
-                                        fileName: "src/components/genre-view/genre-view.jsx",
-                                        lineNumber: 30,
-                                        columnNumber: 25
-                                    },
-                                    __self: this,
-                                    children: /*#__PURE__*/ _jsxRuntime.jsx(_reactBootstrap.Button, {
-                                        className: "genre-button",
-                                        bg: "dark",
-                                        variant: "dark",
-                                        onClick: ()=>{
-                                            onBackClick(null);
-                                        },
+                    children: /*#__PURE__*/ _jsxRuntime.jsxs(_reactBootstrap.Card.Body, {
+                        __source: {
+                            fileName: "src/components/genre-view/genre-view.jsx",
+                            lineNumber: 21,
+                            columnNumber: 21
+                        },
+                        __self: this,
+                        children: [
+                            /*#__PURE__*/ _jsxRuntime.jsx(_reactBootstrap.Card.Title, {
+                                __source: {
+                                    fileName: "src/components/genre-view/genre-view.jsx",
+                                    lineNumber: 22,
+                                    columnNumber: 25
+                                },
+                                __self: this,
+                                children: "GENRE"
+                            }),
+                            /*#__PURE__*/ _jsxRuntime.jsxs("div", {
+                                __source: {
+                                    fileName: "src/components/genre-view/genre-view.jsx",
+                                    lineNumber: 23,
+                                    columnNumber: 25
+                                },
+                                __self: this,
+                                children: [
+                                    /*#__PURE__*/ _jsxRuntime.jsx("span", {
+                                        className: "label",
                                         __source: {
                                             fileName: "src/components/genre-view/genre-view.jsx",
-                                            lineNumber: 31,
+                                            lineNumber: 24,
                                             columnNumber: 29
                                         },
                                         __self: this,
-                                        children: "Back"
+                                        children: "Name: "
+                                    }),
+                                    /*#__PURE__*/ _jsxRuntime.jsx("span", {
+                                        className: "value",
+                                        __source: {
+                                            fileName: "src/components/genre-view/genre-view.jsx",
+                                            lineNumber: 25,
+                                            columnNumber: 29
+                                        },
+                                        __self: this,
+                                        children: genre.Name
                                     })
+                                ]
+                            }),
+                            /*#__PURE__*/ _jsxRuntime.jsxs("div", {
+                                __source: {
+                                    fileName: "src/components/genre-view/genre-view.jsx",
+                                    lineNumber: 27,
+                                    columnNumber: 25
+                                },
+                                __self: this,
+                                children: [
+                                    /*#__PURE__*/ _jsxRuntime.jsx("span", {
+                                        className: "label",
+                                        __source: {
+                                            fileName: "src/components/genre-view/genre-view.jsx",
+                                            lineNumber: 28,
+                                            columnNumber: 29
+                                        },
+                                        __self: this,
+                                        children: "Description: "
+                                    }),
+                                    /*#__PURE__*/ _jsxRuntime.jsx("span", {
+                                        className: "value",
+                                        __source: {
+                                            fileName: "src/components/genre-view/genre-view.jsx",
+                                            lineNumber: 29,
+                                            columnNumber: 29
+                                        },
+                                        __self: this,
+                                        children: genre.Description
+                                    })
+                                ]
+                            }),
+                            /*#__PURE__*/ _jsxRuntime.jsx("div", {
+                                className: "genre-button-div",
+                                __source: {
+                                    fileName: "src/components/genre-view/genre-view.jsx",
+                                    lineNumber: 31,
+                                    columnNumber: 25
+                                },
+                                __self: this,
+                                children: /*#__PURE__*/ _jsxRuntime.jsx(_reactBootstrap.Button, {
+                                    className: "genre-button",
+                                    bg: "dark",
+                                    variant: "dark",
+                                    onClick: ()=>{
+                                        onBackClick(null);
+                                    },
+                                    __source: {
+                                        fileName: "src/components/genre-view/genre-view.jsx",
+                                        lineNumber: 32,
+                                        columnNumber: 29
+                                    },
+                                    __self: this,
+                                    children: "Back"
                                 })
-                            ]
-                        })
-                    ]
+                            })
+                        ]
+                    })
                 }),
                 /*#__PURE__*/ _jsxRuntime.jsx(_reactBootstrap.Row, {
                     __source: {
                         fileName: "src/components/genre-view/genre-view.jsx",
-                        lineNumber: 35,
+                        lineNumber: 36,
                         columnNumber: 17
                     },
                     __self: this,
@@ -41117,7 +41112,7 @@ class GenreView extends _reactDefault.default.Component {
                             lg: 3,
                             __source: {
                                 fileName: "src/components/genre-view/genre-view.jsx",
-                                lineNumber: 38,
+                                lineNumber: 39,
                                 columnNumber: 25
                             },
                             __self: this,
@@ -41125,7 +41120,7 @@ class GenreView extends _reactDefault.default.Component {
                                 movieData: m,
                                 __source: {
                                     fileName: "src/components/genre-view/genre-view.jsx",
-                                    lineNumber: 39,
+                                    lineNumber: 40,
                                     columnNumber: 29
                                 },
                                 __self: this
@@ -41439,34 +41434,34 @@ class UserView extends _reactDefault.default.Component {
             },
             __self: this,
             children: [
-                /*#__PURE__*/ _jsxRuntime.jsxs(_reactBootstrap.Card, {
+                /*#__PURE__*/ _jsxRuntime.jsx(_reactBootstrap.Card, {
                     __source: {
                         fileName: "src/components/profile-view/profile-view.jsx",
                         lineNumber: 163,
                         columnNumber: 17
                     },
                     __self: this,
-                    children: [
-                        /*#__PURE__*/ _jsxRuntime.jsx("h1", {
-                            __source: {
-                                fileName: "src/components/profile-view/profile-view.jsx",
-                                lineNumber: 164,
-                                columnNumber: 21
-                            },
-                            __self: this,
-                            children: "My Profile"
-                        }),
-                        /*#__PURE__*/ _jsxRuntime.jsx(_reactBootstrap.Card.Body, {
-                            __source: {
-                                fileName: "src/components/profile-view/profile-view.jsx",
-                                lineNumber: 165,
-                                columnNumber: 21
-                            },
-                            __self: this,
-                            children: /*#__PURE__*/ _jsxRuntime.jsxs("div", {
+                    children: /*#__PURE__*/ _jsxRuntime.jsxs(_reactBootstrap.Card.Body, {
+                        __source: {
+                            fileName: "src/components/profile-view/profile-view.jsx",
+                            lineNumber: 165,
+                            columnNumber: 21
+                        },
+                        __self: this,
+                        children: [
+                            /*#__PURE__*/ _jsxRuntime.jsx(_reactBootstrap.Card.Title, {
                                 __source: {
                                     fileName: "src/components/profile-view/profile-view.jsx",
                                     lineNumber: 166,
+                                    columnNumber: 25
+                                },
+                                __self: this,
+                                children: "MY PROFILE"
+                            }),
+                            /*#__PURE__*/ _jsxRuntime.jsxs("div", {
+                                __source: {
+                                    fileName: "src/components/profile-view/profile-view.jsx",
+                                    lineNumber: 167,
                                     columnNumber: 25
                                 },
                                 __self: this,
@@ -41474,7 +41469,7 @@ class UserView extends _reactDefault.default.Component {
                                     /*#__PURE__*/ _jsxRuntime.jsxs("h4", {
                                         __source: {
                                             fileName: "src/components/profile-view/profile-view.jsx",
-                                            lineNumber: 167,
+                                            lineNumber: 168,
                                             columnNumber: 29
                                         },
                                         __self: this,
@@ -41486,7 +41481,7 @@ class UserView extends _reactDefault.default.Component {
                                     /*#__PURE__*/ _jsxRuntime.jsxs("h4", {
                                         __source: {
                                             fileName: "src/components/profile-view/profile-view.jsx",
-                                            lineNumber: 168,
+                                            lineNumber: 169,
                                             columnNumber: 29
                                         },
                                         __self: this,
@@ -41498,7 +41493,7 @@ class UserView extends _reactDefault.default.Component {
                                     /*#__PURE__*/ _jsxRuntime.jsxs("h4", {
                                         __source: {
                                             fileName: "src/components/profile-view/profile-view.jsx",
-                                            lineNumber: 169,
+                                            lineNumber: 170,
                                             columnNumber: 29
                                         },
                                         __self: this,
@@ -41509,170 +41504,180 @@ class UserView extends _reactDefault.default.Component {
                                     })
                                 ]
                             })
-                        })
-                    ]
+                        ]
+                    })
                 }),
-                /*#__PURE__*/ _jsxRuntime.jsx("div", {
+                /*#__PURE__*/ _jsxRuntime.jsxs("div", {
                     className: "profileInformation",
                     __source: {
                         fileName: "src/components/profile-view/profile-view.jsx",
-                        lineNumber: 180,
+                        lineNumber: 181,
                         columnNumber: 17
                     },
                     __self: this,
-                    children: /*#__PURE__*/ _jsxRuntime.jsxs(_reactBootstrap.Form, {
-                        className: "formDisplay",
-                        onSubmit: (e)=>this.editUser(e)
-                        ,
-                        __source: {
-                            fileName: "src/components/profile-view/profile-view.jsx",
-                            lineNumber: 181,
-                            columnNumber: 21
-                        },
-                        __self: this,
-                        children: [
-                            /*#__PURE__*/ _jsxRuntime.jsx("div", {
-                                __source: {
-                                    fileName: "src/components/profile-view/profile-view.jsx",
-                                    lineNumber: 182,
-                                    columnNumber: 25
-                                },
-                                __self: this,
-                                children: /*#__PURE__*/ _jsxRuntime.jsx("h3", {
+                    children: [
+                        /*#__PURE__*/ _jsxRuntime.jsx("br", {
+                            __source: {
+                                fileName: "src/components/profile-view/profile-view.jsx",
+                                lineNumber: 182,
+                                columnNumber: 21
+                            },
+                            __self: this
+                        }),
+                        /*#__PURE__*/ _jsxRuntime.jsxs(_reactBootstrap.Form, {
+                            className: "formDisplay",
+                            onSubmit: (e)=>this.editUser(e)
+                            ,
+                            __source: {
+                                fileName: "src/components/profile-view/profile-view.jsx",
+                                lineNumber: 183,
+                                columnNumber: 21
+                            },
+                            __self: this,
+                            children: [
+                                /*#__PURE__*/ _jsxRuntime.jsx("div", {
                                     __source: {
                                         fileName: "src/components/profile-view/profile-view.jsx",
-                                        lineNumber: 183,
-                                        columnNumber: 29
+                                        lineNumber: 184,
+                                        columnNumber: 25
                                     },
                                     __self: this,
-                                    children: "EDIT PROFILE"
-                                })
-                            }),
-                            /*#__PURE__*/ _jsxRuntime.jsxs(_reactBootstrap.Form.Group, {
-                                __source: {
-                                    fileName: "src/components/profile-view/profile-view.jsx",
-                                    lineNumber: 185,
-                                    columnNumber: 25
-                                },
-                                __self: this,
-                                children: [
-                                    "Username",
-                                    /*#__PURE__*/ _jsxRuntime.jsx(_reactBootstrap.Form.Control, {
-                                        type: "text",
-                                        name: "Username",
-                                        placeholder: "New Username",
-                                        onChange: (e)=>this.setUsername(e.target.value)
-                                        ,
-                                        required: true,
+                                    children: /*#__PURE__*/ _jsxRuntime.jsx("h6", {
                                         __source: {
                                             fileName: "src/components/profile-view/profile-view.jsx",
-                                            lineNumber: 187,
-                                            columnNumber: 15
+                                            lineNumber: 185,
+                                            columnNumber: 29
                                         },
-                                        __self: this
+                                        __self: this,
+                                        children: "EDIT PROFILE"
                                     })
-                                ]
-                            }),
-                            /*#__PURE__*/ _jsxRuntime.jsxs(_reactBootstrap.Form.Group, {
-                                __source: {
-                                    fileName: "src/components/profile-view/profile-view.jsx",
-                                    lineNumber: 190,
-                                    columnNumber: 25
-                                },
-                                __self: this,
-                                children: [
-                                    "Password",
-                                    /*#__PURE__*/ _jsxRuntime.jsx(_reactBootstrap.Form.Control, {
-                                        type: "password",
-                                        name: "Password",
-                                        placeholder: "New Password",
-                                        onChange: (e)=>this.setPassword(e.target.value)
-                                        ,
-                                        required: true,
-                                        __source: {
-                                            fileName: "src/components/profile-view/profile-view.jsx",
-                                            lineNumber: 192,
-                                            columnNumber: 15
-                                        },
-                                        __self: this
-                                    })
-                                ]
-                            }),
-                            /*#__PURE__*/ _jsxRuntime.jsxs(_reactBootstrap.Form.Group, {
-                                __source: {
-                                    fileName: "src/components/profile-view/profile-view.jsx",
-                                    lineNumber: 195,
-                                    columnNumber: 25
-                                },
-                                __self: this,
-                                children: [
-                                    "Email Address",
-                                    /*#__PURE__*/ _jsxRuntime.jsx(_reactBootstrap.Form.Control, {
-                                        type: "email",
-                                        name: "Email",
-                                        placeholder: "New Email",
-                                        onChange: (e)=>this.setEmail(e.target.value)
-                                        ,
-                                        required: true,
-                                        __source: {
-                                            fileName: "src/components/profile-view/profile-view.jsx",
-                                            lineNumber: 197,
-                                            columnNumber: 15
-                                        },
-                                        __self: this
-                                    })
-                                ]
-                            }),
-                            /*#__PURE__*/ _jsxRuntime.jsxs(_reactBootstrap.Form.Group, {
-                                __source: {
-                                    fileName: "src/components/profile-view/profile-view.jsx",
-                                    lineNumber: 200,
-                                    columnNumber: 25
-                                },
-                                __self: this,
-                                children: [
-                                    "Birthday",
-                                    /*#__PURE__*/ _jsxRuntime.jsx(_reactBootstrap.Form.Control, {
-                                        type: "date",
-                                        name: "Birthday",
-                                        onChange: (e)=>this.setBirthday(e.target.value)
-                                        ,
-                                        __source: {
-                                            fileName: "src/components/profile-view/profile-view.jsx",
-                                            lineNumber: 202,
-                                            columnNumber: 15
-                                        },
-                                        __self: this
-                                    })
-                                ]
-                            }),
-                            /*#__PURE__*/ _jsxRuntime.jsx("div", {
-                                className: "marginSpacer",
-                                __source: {
-                                    fileName: "src/components/profile-view/profile-view.jsx",
-                                    lineNumber: 205,
-                                    columnNumber: 25
-                                },
-                                __self: this,
-                                children: /*#__PURE__*/ _jsxRuntime.jsx(_reactBootstrap.Button, {
-                                    variant: "success",
-                                    type: "submit",
+                                }),
+                                /*#__PURE__*/ _jsxRuntime.jsxs(_reactBootstrap.Form.Group, {
                                     __source: {
                                         fileName: "src/components/profile-view/profile-view.jsx",
-                                        lineNumber: 206,
-                                        columnNumber: 29
+                                        lineNumber: 187,
+                                        columnNumber: 25
                                     },
                                     __self: this,
-                                    children: "Update"
+                                    children: [
+                                        "Username",
+                                        /*#__PURE__*/ _jsxRuntime.jsx(_reactBootstrap.Form.Control, {
+                                            type: "text",
+                                            name: "Username",
+                                            placeholder: "New Username",
+                                            onChange: (e)=>this.setUsername(e.target.value)
+                                            ,
+                                            required: true,
+                                            __source: {
+                                                fileName: "src/components/profile-view/profile-view.jsx",
+                                                lineNumber: 189,
+                                                columnNumber: 15
+                                            },
+                                            __self: this
+                                        })
+                                    ]
+                                }),
+                                /*#__PURE__*/ _jsxRuntime.jsxs(_reactBootstrap.Form.Group, {
+                                    __source: {
+                                        fileName: "src/components/profile-view/profile-view.jsx",
+                                        lineNumber: 192,
+                                        columnNumber: 25
+                                    },
+                                    __self: this,
+                                    children: [
+                                        "Password",
+                                        /*#__PURE__*/ _jsxRuntime.jsx(_reactBootstrap.Form.Control, {
+                                            type: "password",
+                                            name: "Password",
+                                            placeholder: "New Password",
+                                            onChange: (e)=>this.setPassword(e.target.value)
+                                            ,
+                                            required: true,
+                                            __source: {
+                                                fileName: "src/components/profile-view/profile-view.jsx",
+                                                lineNumber: 194,
+                                                columnNumber: 15
+                                            },
+                                            __self: this
+                                        })
+                                    ]
+                                }),
+                                /*#__PURE__*/ _jsxRuntime.jsxs(_reactBootstrap.Form.Group, {
+                                    __source: {
+                                        fileName: "src/components/profile-view/profile-view.jsx",
+                                        lineNumber: 197,
+                                        columnNumber: 25
+                                    },
+                                    __self: this,
+                                    children: [
+                                        "Email Address",
+                                        /*#__PURE__*/ _jsxRuntime.jsx(_reactBootstrap.Form.Control, {
+                                            type: "email",
+                                            name: "Email",
+                                            placeholder: "New Email",
+                                            onChange: (e)=>this.setEmail(e.target.value)
+                                            ,
+                                            required: true,
+                                            __source: {
+                                                fileName: "src/components/profile-view/profile-view.jsx",
+                                                lineNumber: 199,
+                                                columnNumber: 15
+                                            },
+                                            __self: this
+                                        })
+                                    ]
+                                }),
+                                /*#__PURE__*/ _jsxRuntime.jsxs(_reactBootstrap.Form.Group, {
+                                    __source: {
+                                        fileName: "src/components/profile-view/profile-view.jsx",
+                                        lineNumber: 202,
+                                        columnNumber: 25
+                                    },
+                                    __self: this,
+                                    children: [
+                                        "Birthday",
+                                        /*#__PURE__*/ _jsxRuntime.jsx(_reactBootstrap.Form.Control, {
+                                            type: "date",
+                                            name: "Birthday",
+                                            onChange: (e)=>this.setBirthday(e.target.value)
+                                            ,
+                                            __source: {
+                                                fileName: "src/components/profile-view/profile-view.jsx",
+                                                lineNumber: 204,
+                                                columnNumber: 15
+                                            },
+                                            __self: this
+                                        })
+                                    ]
+                                }),
+                                /*#__PURE__*/ _jsxRuntime.jsx("div", {
+                                    className: "marginSpacer",
+                                    __source: {
+                                        fileName: "src/components/profile-view/profile-view.jsx",
+                                        lineNumber: 207,
+                                        columnNumber: 25
+                                    },
+                                    __self: this,
+                                    children: /*#__PURE__*/ _jsxRuntime.jsx(_reactBootstrap.Button, {
+                                        variant: "success",
+                                        type: "submit",
+                                        __source: {
+                                            fileName: "src/components/profile-view/profile-view.jsx",
+                                            lineNumber: 208,
+                                            columnNumber: 29
+                                        },
+                                        __self: this,
+                                        children: "Update"
+                                    })
                                 })
-                            })
-                        ]
-                    })
+                            ]
+                        })
+                    ]
                 }),
                 /*#__PURE__*/ _jsxRuntime.jsx(_reactBootstrap.Row, {
                     __source: {
                         fileName: "src/components/profile-view/profile-view.jsx",
-                        lineNumber: 210,
+                        lineNumber: 212,
                         columnNumber: 17
                     },
                     __self: this,
@@ -41680,7 +41685,7 @@ class UserView extends _reactDefault.default.Component {
                         className: "acc-btns mt-1",
                         __source: {
                             fileName: "src/components/profile-view/profile-view.jsx",
-                            lineNumber: 211,
+                            lineNumber: 213,
                             columnNumber: 21
                         },
                         __self: this,
@@ -41693,7 +41698,7 @@ class UserView extends _reactDefault.default.Component {
                             ,
                             __source: {
                                 fileName: "src/components/profile-view/profile-view.jsx",
-                                lineNumber: 212,
+                                lineNumber: 214,
                                 columnNumber: 25
                             },
                             __self: this,
@@ -41705,7 +41710,7 @@ class UserView extends _reactDefault.default.Component {
                     className: "favorite-Movies-title",
                     __source: {
                         fileName: "src/components/profile-view/profile-view.jsx",
-                        lineNumber: 217,
+                        lineNumber: 219,
                         columnNumber: 17
                     },
                     __self: this,
@@ -41714,7 +41719,7 @@ class UserView extends _reactDefault.default.Component {
                 /*#__PURE__*/ _jsxRuntime.jsx(_reactBootstrap.Row, {
                     __source: {
                         fileName: "src/components/profile-view/profile-view.jsx",
-                        lineNumber: 218,
+                        lineNumber: 220,
                         columnNumber: 17
                     },
                     __self: this,
@@ -41724,7 +41729,7 @@ class UserView extends _reactDefault.default.Component {
                             lg: 3,
                             __source: {
                                 fileName: "src/components/profile-view/profile-view.jsx",
-                                lineNumber: 221,
+                                lineNumber: 223,
                                 columnNumber: 25
                             },
                             __self: this,
@@ -41732,7 +41737,7 @@ class UserView extends _reactDefault.default.Component {
                                 /*#__PURE__*/ _jsxRuntime.jsx("br", {
                                     __source: {
                                         fileName: "src/components/profile-view/profile-view.jsx",
-                                        lineNumber: 222,
+                                        lineNumber: 224,
                                         columnNumber: 29
                                     },
                                     __self: this
@@ -41740,7 +41745,7 @@ class UserView extends _reactDefault.default.Component {
                                 /*#__PURE__*/ _jsxRuntime.jsx("br", {
                                     __source: {
                                         fileName: "src/components/profile-view/profile-view.jsx",
-                                        lineNumber: 223,
+                                        lineNumber: 225,
                                         columnNumber: 29
                                     },
                                     __self: this
@@ -41749,7 +41754,7 @@ class UserView extends _reactDefault.default.Component {
                                     movieData: m,
                                     __source: {
                                         fileName: "src/components/profile-view/profile-view.jsx",
-                                        lineNumber: 225,
+                                        lineNumber: 227,
                                         columnNumber: 29
                                     },
                                     __self: this
@@ -41762,7 +41767,7 @@ class UserView extends _reactDefault.default.Component {
                                     ,
                                     __source: {
                                         fileName: "src/components/profile-view/profile-view.jsx",
-                                        lineNumber: 226,
+                                        lineNumber: 228,
                                         columnNumber: 29
                                     },
                                     __self: this,

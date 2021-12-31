@@ -1,9 +1,9 @@
 import React from 'react';
 import PropTypes from "prop-types";
 import { MovieCard } from '../movie-card/movie-card';
-// import './movie-view.scss';
+// import './genre-view.scss';
 import { Container, Row, Col, Button, Card } from 'react-bootstrap';
-// import { Link } from 'react-router-dom';
+
 
 export class GenreView extends React.Component {
     render() {
@@ -17,8 +17,9 @@ export class GenreView extends React.Component {
         return (
             <Container>
                 <Card>
-                    <h4>Genre</h4>
+
                     <Card.Body>
+                        <Card.Title>GENRE</Card.Title>
                         <div>
                             <span className="label">Name: </span>
                             <span className="value">{genre.Name}</span>

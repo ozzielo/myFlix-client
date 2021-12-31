@@ -13,8 +13,9 @@ export class DirectorView extends React.Component {
         return (
             <Container>
                 <Card>
-                    <h4>Director</h4>
+
                     <Card.Body>
+                        <Card.Title>DIRECTOR</Card.Title>
                         <div>
                             <span className="label">Name: </span>
                             <span className="value">{director.Name}</span>
