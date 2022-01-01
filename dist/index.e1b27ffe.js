@@ -40738,7 +40738,7 @@ $RefreshReg$(_c, "RegistrationView");
   window.$RefreshReg$ = prevRefreshReg;
   window.$RefreshSig$ = prevRefreshSig;
 }
-},{"react/jsx-runtime":"6Ds2u","react":"4mchR","prop-types":"2bysO","./registration-view.scss":"74YgT","react-bootstrap":"9qMdX","react-router-dom":"etVME","@parcel/transformer-js/src/esmodule-helpers.js":"ciiiV","@parcel/transformer-react-refresh-wrap/lib/helpers/helpers.js":"9pz13","axios":"1IeuP"}],"74YgT":[function() {},{}],"47DIu":[function(require,module,exports) {
+},{"react/jsx-runtime":"6Ds2u","react":"4mchR","prop-types":"2bysO","./registration-view.scss":"74YgT","react-bootstrap":"9qMdX","react-router-dom":"etVME","axios":"1IeuP","@parcel/transformer-js/src/esmodule-helpers.js":"ciiiV","@parcel/transformer-react-refresh-wrap/lib/helpers/helpers.js":"9pz13"}],"74YgT":[function() {},{}],"47DIu":[function(require,module,exports) {
 var $parcel$ReactRefreshHelpers$da2a = require("@parcel/transformer-react-refresh-wrap/lib/helpers/helpers.js");
 var prevRefreshReg = window.$RefreshReg$;
 var prevRefreshSig = window.$RefreshSig$;
@@ -41287,7 +41287,7 @@ $RefreshReg$(_c, "NavBarView");
   window.$RefreshReg$ = prevRefreshReg;
   window.$RefreshSig$ = prevRefreshSig;
 }
-},{"react/jsx-runtime":"6Ds2u","react":"4mchR","react-bootstrap":"9qMdX","react-router-dom":"etVME","@parcel/transformer-js/src/esmodule-helpers.js":"ciiiV","@parcel/transformer-react-refresh-wrap/lib/helpers/helpers.js":"9pz13","./navbar.scss":"jWErU"}],"jWErU":[function() {},{}],"aZt7f":[function(require,module,exports) {
+},{"react/jsx-runtime":"6Ds2u","react":"4mchR","react-bootstrap":"9qMdX","./navbar.scss":"jWErU","react-router-dom":"etVME","@parcel/transformer-js/src/esmodule-helpers.js":"ciiiV","@parcel/transformer-react-refresh-wrap/lib/helpers/helpers.js":"9pz13"}],"jWErU":[function() {},{}],"aZt7f":[function(require,module,exports) {
 var $parcel$ReactRefreshHelpers$80e7 = require("@parcel/transformer-react-refresh-wrap/lib/helpers/helpers.js");
 var prevRefreshReg = window.$RefreshReg$;
 var prevRefreshSig = window.$RefreshSig$;
@@ -41836,6 +41836,6 @@ class UserView extends _reactDefault.default.Component {
   window.$RefreshReg$ = prevRefreshReg;
   window.$RefreshSig$ = prevRefreshSig;
 }
-},{"react/jsx-runtime":"6Ds2u","react":"4mchR","axios":"1IeuP","react-bootstrap":"9qMdX","../movie-card/movie-card":"04zIX","@parcel/transformer-js/src/esmodule-helpers.js":"ciiiV","@parcel/transformer-react-refresh-wrap/lib/helpers/helpers.js":"9pz13","./profile-view.scss":"z96SM"}],"z96SM":[function() {},{}],"hlAnh":[function() {},{}]},["emU3S","90ZSn","dB8et"], "dB8et", "parcelRequireaec4")
+},{"react/jsx-runtime":"6Ds2u","react":"4mchR","axios":"1IeuP","react-bootstrap":"9qMdX","../movie-card/movie-card":"04zIX","./profile-view.scss":"z96SM","@parcel/transformer-js/src/esmodule-helpers.js":"ciiiV","@parcel/transformer-react-refresh-wrap/lib/helpers/helpers.js":"9pz13"}],"z96SM":[function() {},{}],"hlAnh":[function() {},{}]},["emU3S","90ZSn","dB8et"], "dB8et", "parcelRequireaec4")
 
 //# sourceMappingURL=index.e1b27ffe.js.map
