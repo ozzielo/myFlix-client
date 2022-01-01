@@ -133,7 +133,7 @@ export class MainView extends React.Component {
 
 
 
-                <div className="main-view">
+                <div className="main-view ">
                     <Row className="main-view justify-content-md-center">
                         <Route exact path="/" render={() => {
 
@@ -218,7 +218,7 @@ export class MainView extends React.Component {
 
 
                                 <DirectorView movieData={targetDirectorMovies} director={movies.find(m => m.Director.Name === match.params.name).Director} onBackClick={() => history.goBack()} />
-                        ch    </Col>
+                            </Col>
                         }
 
                         } />

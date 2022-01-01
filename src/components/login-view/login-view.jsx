@@ -58,7 +58,7 @@ export function LoginView(props) {
     };
 
     return (
-        <div>
+        <div className="login-view-div">
             <Navbar bg="navColor" variant="dark" expand="lg">
                 <Container fluid>
                     <Navbar.Brand href="#home">MyFlix</Navbar.Brand>

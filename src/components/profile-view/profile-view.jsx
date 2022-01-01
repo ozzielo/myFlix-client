@@ -2,7 +2,7 @@ import React from 'react';
 import axios from 'axios';
 import { Button, Card, Col, Form, Row, Container } from 'react-bootstrap';
 import { MovieCard } from '../movie-card/movie-card';
-// import './user-view.scss';
+import './profile-view.scss';
 
 export class UserView extends React.Component {
     constructor() {
@@ -159,7 +159,7 @@ export class UserView extends React.Component {
 
 
         return (
-            <Container>
+            <Container fluid>
                 <Card>
 
                     <Card.Body>
@@ -204,31 +204,43 @@ export class UserView extends React.Component {
               <Form.Control type='date' name="Birthday" onChange={(e) => this.setBirthday(e.target.value)} />
 
                         </Form.Group>
-                        <div className="marginSpacer">
-                            <Button variant="success" type="submit" >Update</Button>
+                        <div className="profile-update-div">
+                            <br />
+                            <Button className="update-button" variant="success" type="submit" >Update</Button>
                         </div>
                     </Form>
                 </div>
                 <Row>
-                    <Col className="acc-btns mt-1">
-                        <Button size="md" variant="outline-danger" type="submit" ml="4" onClick={() => this.deleteUser()} >Delete Account</Button>
+                    <Col className="account-button">
+                        <br />
+                        <Button size="md" variant="outline-danger" type="submit" onClick={() => this.deleteUser()} >Delete Account</Button>
                     </Col>
 
                 </Row>
+                <br />
 
-                <h3 className="favorite-Movies-title">Favorite Movies</h3>
-                <Row>
+                <h2 className="favorite-movies-title " >Favorite Movies:</h2>
+                <Row className="fav-row ">
+
 
                     {favoriteMovies.map(m => (
-                        <Col xs={6} md={4} lg={3} key={m._id}>
-                            <br />
+
+                        <Col sm={6} md={4} key={m._id} className="justify-content-center">
+                            < br />
                             <br />
 
                             <MovieCard movieData={m} />
-                            <Button bg="dark" variant="secondary" className="unfavorite-button" onClick={() => this.onRemoveFavorite(m)}>
-                                Delete From Favorites
+                            <div classname="unfavorite-button-div" style={{ display: "flex", justifyContent: "center" }}>
+                                <Button bg="dark" variant="secondary" size="sm" className="unfavorite-button" onClick={() => this.onRemoveFavorite(m)}>
+                                    Delete From Favorites
                 </Button>
+
+                            </div>
+
                         </Col>
+
+
+
                     ))}
 
                     {/* {favorites && favorites.map((movieData) => (
@@ -254,7 +266,7 @@ export class UserView extends React.Component {
                 </Row>
 
 
-            </Container>
+            </Container >
         )
 
     }

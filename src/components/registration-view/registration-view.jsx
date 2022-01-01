@@ -72,7 +72,7 @@ export function RegistrationView(props) {
 
     return (
 
-        <div>
+        <div className="registration-view-div">
             <Navbar bg="navColor" variant="dark" expand="lg">
                 <Container fluid>
                     <Navbar.Brand href="#home">MyFlix</Navbar.Brand>

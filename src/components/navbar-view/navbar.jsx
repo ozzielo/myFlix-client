@@ -1,6 +1,6 @@
 import React from 'react';
 import { Navbar, Nav, Container, Row, Col, NavDropdown } from 'react-bootstrap';
-// import './navbar-view.scss';
+import './navbar.scss';
 import { Link } from "react-router-dom";
 
 export function NavBarView() {
@@ -13,7 +13,7 @@ export function NavBarView() {
     };
 
     return (
-        <div>
+        <div className="navbar-div">
             <Navbar bg="navColor" variant="dark" expand="lg" fixed="top">
                 <Container fluid>
                     <Navbar.Brand href="/">MyFlix</Navbar.Brand>
@@ -21,7 +21,7 @@ export function NavBarView() {
                     <Navbar.Collapse id="basic-navbar-nav">
                         <Nav className="me-auto">
                             <Nav.Link href="/">Movies</Nav.Link>
-        //                  <Nav.Link href={`/users/${user}`}>Profile</Nav.Link>
+        //                  <Nav.Link href={`/users/${user}`}>Profile: {user}</Nav.Link>
         //                  <Nav.Link onClick={() => { this.onLoggedOut() }} href="#logout">Logout</Nav.Link>
                         </Nav>
                     </Navbar.Collapse>
