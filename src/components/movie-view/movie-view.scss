@@ -10,6 +10,7 @@
   
   .movie-poster {
     text-align: center;
+    // width: 200px;
   }
   .label  {
     color: black;
@@ -26,4 +27,8 @@
     margin-top: 20px;
     width: 100%;
     background-color: black;
+  }
+
+  .poster{
+    width: 300px!important;
   }

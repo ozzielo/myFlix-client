@@ -149,6 +149,7 @@ export class MainView extends React.Component {
                         }} />
                         <Route path="/movies/:movieId" render={({ match, history }) => {
                             if (movies.length === 0) return <div className="main-view" />;
+                            console.log(movies)
                             return <Col lg={9}>
                                 <NavBarView user={user} />
                                 <br />

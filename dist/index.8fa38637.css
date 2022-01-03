@@ -50,7 +50,7 @@
 
 .cardImage {
   width: 100% !important;
-  height: 200px !important;
+  height: 100% !important;
   object-fit: cover;
 }
 .moviesContainer {
@@ -83,6 +83,10 @@
   margin-top: 20px;
   width: 100%;
   background-color: black;
+}
+
+.poster {
+  width: 300px !important;
 }
 .registration-view-div {
   font-family: "Georgia", sans-serif;
