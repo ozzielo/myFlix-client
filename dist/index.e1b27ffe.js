@@ -28049,7 +28049,7 @@ var _react = require("react");
 /**
  * Creates a `Ref` whose value is updated in an effect, ensuring the most recent
  * value is the one rendered with. Generally only required for Concurrent mode usage
- * where previous work in `render()` may be discarded before being used.
+ * where previous work in `render()` may be discarded befor being used.
  *
  * This is safe to access in an event handler.
  *
@@ -28120,7 +28120,7 @@ function isTrivialHref(href) {
 Anchor.displayName = 'Anchor';
 exports.default = Anchor;
 
-},{"react":"4mchR","@restart/hooks":"lohNu","./Button":"3AURZ","react/jsx-runtime":"6Ds2u","@parcel/transformer-js/src/esmodule-helpers.js":"ciiiV"}],"lohNu":[function(require,module,exports) {
+},{"react":"4mchR","@restart/hooks":"534Lk","./Button":"3AURZ","react/jsx-runtime":"6Ds2u","@parcel/transformer-js/src/esmodule-helpers.js":"ciiiV"}],"534Lk":[function(require,module,exports) {
 var parcelHelpers = require("@parcel/transformer-js/src/esmodule-helpers.js");
 parcelHelpers.defineInteropFlag(exports);
 parcelHelpers.export(exports, "useCallbackRef", ()=>_useCallbackRefDefault.default
@@ -28176,7 +28176,7 @@ var _useImageDefault = parcelHelpers.interopDefault(_useImage);
 var _useResizeObserver = require("./useResizeObserver");
 var _useResizeObserverDefault = parcelHelpers.interopDefault(_useResizeObserver);
 
-},{"./useCallbackRef":"4MRqx","./useCommittedRef":"663QR","./useEventCallback":"8QyIg","./useEventListener":"eRR4h","./useGlobalListener":"6Qjt2","./useInterval":"201GY","./useRafInterval":"jTX44","./useMergeState":"jiNzV","./useMergeStateFromProps":"j2Nmn","./useMounted":"lesmc","./usePrevious":"6phQk","./useImage":"gb57o","./useResizeObserver":"kN5VU","@parcel/transformer-js/src/esmodule-helpers.js":"ciiiV"}],"4MRqx":[function(require,module,exports) {
+},{"./useCallbackRef":"e0LTO","./useCommittedRef":"2qON3","./useEventCallback":"f2VQA","./useEventListener":"dGyPw","./useGlobalListener":"3D4ev","./useInterval":"h4THa","./useRafInterval":"p5cuv","./useMergeState":"jafuM","./useMergeStateFromProps":"eOXlF","./useMounted":"58qhK","./usePrevious":"UwSoS","./useImage":"95q9l","./useResizeObserver":"4OMuv","@parcel/transformer-js/src/esmodule-helpers.js":"ciiiV"}],"e0LTO":[function(require,module,exports) {
 var parcelHelpers = require("@parcel/transformer-js/src/esmodule-helpers.js");
 parcelHelpers.defineInteropFlag(exports);
 var _react = require("react");
@@ -28185,7 +28185,46 @@ function useCallbackRef() {
 }
 exports.default = useCallbackRef;
 
-},{"react":"4mchR","@parcel/transformer-js/src/esmodule-helpers.js":"ciiiV"}],"eRR4h":[function(require,module,exports) {
+},{"react":"4mchR","@parcel/transformer-js/src/esmodule-helpers.js":"ciiiV"}],"2qON3":[function(require,module,exports) {
+var parcelHelpers = require("@parcel/transformer-js/src/esmodule-helpers.js");
+parcelHelpers.defineInteropFlag(exports);
+var _react = require("react");
+/**
+ * Creates a `Ref` whose value is updated in an effect, ensuring the most recent
+ * value is the one rendered with. Generally only required for Concurrent mode usage
+ * where previous work in `render()` may be discarded before being used.
+ *
+ * This is safe to access in an event handler.
+ *
+ * @param value The `Ref` value
+ */ function useCommittedRef(value) {
+    var ref = _react.useRef(value);
+    _react.useEffect(function() {
+        ref.current = value;
+    }, [
+        value
+    ]);
+    return ref;
+}
+exports.default = useCommittedRef;
+
+},{"react":"4mchR","@parcel/transformer-js/src/esmodule-helpers.js":"ciiiV"}],"f2VQA":[function(require,module,exports) {
+var parcelHelpers = require("@parcel/transformer-js/src/esmodule-helpers.js");
+parcelHelpers.defineInteropFlag(exports);
+var _react = require("react");
+var _useCommittedRef = require("./useCommittedRef");
+var _useCommittedRefDefault = parcelHelpers.interopDefault(_useCommittedRef);
+function useEventCallback(fn) {
+    var ref = _useCommittedRefDefault.default(fn);
+    return _react.useCallback(function() {
+        return ref.current && ref.current.apply(ref, arguments);
+    }, [
+        ref
+    ]);
+}
+exports.default = useEventCallback;
+
+},{"react":"4mchR","./useCommittedRef":"2qON3","@parcel/transformer-js/src/esmodule-helpers.js":"ciiiV"}],"dGyPw":[function(require,module,exports) {
 var parcelHelpers = require("@parcel/transformer-js/src/esmodule-helpers.js");
 parcelHelpers.defineInteropFlag(exports);
 var _react = require("react");
@@ -28206,7 +28245,7 @@ function useEventListener(eventTarget, event, listener, capture) {
 }
 exports.default = useEventListener;
 
-},{"react":"4mchR","./useEventCallback":"8QyIg","@parcel/transformer-js/src/esmodule-helpers.js":"ciiiV"}],"6Qjt2":[function(require,module,exports) {
+},{"react":"4mchR","./useEventCallback":"f2VQA","@parcel/transformer-js/src/esmodule-helpers.js":"ciiiV"}],"3D4ev":[function(require,module,exports) {
 var parcelHelpers = require("@parcel/transformer-js/src/esmodule-helpers.js");
 parcelHelpers.defineInteropFlag(exports);
 var _useEventListener = require("./useEventListener");
@@ -28221,7 +28260,7 @@ function useGlobalListener(event, handler, capture) {
 }
 exports.default = useGlobalListener;
 
-},{"./useEventListener":"eRR4h","react":"4mchR","@parcel/transformer-js/src/esmodule-helpers.js":"ciiiV"}],"201GY":[function(require,module,exports) {
+},{"./useEventListener":"dGyPw","react":"4mchR","@parcel/transformer-js/src/esmodule-helpers.js":"ciiiV"}],"h4THa":[function(require,module,exports) {
 var parcelHelpers = require("@parcel/transformer-js/src/esmodule-helpers.js");
 parcelHelpers.defineInteropFlag(exports);
 var _react = require("react");
@@ -28270,7 +28309,7 @@ var _useCommittedRefDefault = parcelHelpers.interopDefault(_useCommittedRef);
 }
 exports.default = useInterval;
 
-},{"react":"4mchR","./useCommittedRef":"663QR","@parcel/transformer-js/src/esmodule-helpers.js":"ciiiV"}],"jTX44":[function(require,module,exports) {
+},{"react":"4mchR","./useCommittedRef":"2qON3","@parcel/transformer-js/src/esmodule-helpers.js":"ciiiV"}],"p5cuv":[function(require,module,exports) {
 var parcelHelpers = require("@parcel/transformer-js/src/esmodule-helpers.js");
 parcelHelpers.defineInteropFlag(exports);
 var _react = require("react");
@@ -28303,7 +28342,7 @@ function useRafInterval(fn, ms, paused) {
 }
 exports.default = useRafInterval;
 
-},{"react":"4mchR","./useCommittedRef":"663QR","@parcel/transformer-js/src/esmodule-helpers.js":"ciiiV"}],"jiNzV":[function(require,module,exports) {
+},{"react":"4mchR","./useCommittedRef":"2qON3","@parcel/transformer-js/src/esmodule-helpers.js":"ciiiV"}],"jafuM":[function(require,module,exports) {
 var parcelHelpers = require("@parcel/transformer-js/src/esmodule-helpers.js");
 parcelHelpers.defineInteropFlag(exports);
 var _react = require("react");
@@ -28340,7 +28379,7 @@ function useMergeState(initialState) {
 }
 exports.default = useMergeState;
 
-},{"react":"4mchR","@parcel/transformer-js/src/esmodule-helpers.js":"ciiiV"}],"j2Nmn":[function(require,module,exports) {
+},{"react":"4mchR","@parcel/transformer-js/src/esmodule-helpers.js":"ciiiV"}],"eOXlF":[function(require,module,exports) {
 var parcelHelpers = require("@parcel/transformer-js/src/esmodule-helpers.js");
 parcelHelpers.defineInteropFlag(exports);
 var _useMergeState1 = require("./useMergeState");
@@ -28356,7 +28395,7 @@ function useMergeStateFromProps(props, gDSFP, initialState) {
 }
 exports.default = useMergeStateFromProps;
 
-},{"./useMergeState":"jiNzV","@parcel/transformer-js/src/esmodule-helpers.js":"ciiiV"}],"lesmc":[function(require,module,exports) {
+},{"./useMergeState":"jafuM","@parcel/transformer-js/src/esmodule-helpers.js":"ciiiV"}],"58qhK":[function(require,module,exports) {
 var parcelHelpers = require("@parcel/transformer-js/src/esmodule-helpers.js");
 parcelHelpers.defineInteropFlag(exports);
 var _react = require("react");
@@ -28374,7 +28413,7 @@ function useMounted() {
 }
 exports.default = useMounted;
 
-},{"react":"4mchR","@parcel/transformer-js/src/esmodule-helpers.js":"ciiiV"}],"6phQk":[function(require,module,exports) {
+},{"react":"4mchR","@parcel/transformer-js/src/esmodule-helpers.js":"ciiiV"}],"UwSoS":[function(require,module,exports) {
 var parcelHelpers = require("@parcel/transformer-js/src/esmodule-helpers.js");
 parcelHelpers.defineInteropFlag(exports);
 var _react = require("react");
@@ -28387,7 +28426,7 @@ function usePrevious(value) {
 }
 exports.default = usePrevious;
 
-},{"react":"4mchR","@parcel/transformer-js/src/esmodule-helpers.js":"ciiiV"}],"gb57o":[function(require,module,exports) {
+},{"react":"4mchR","@parcel/transformer-js/src/esmodule-helpers.js":"ciiiV"}],"95q9l":[function(require,module,exports) {
 var parcelHelpers = require("@parcel/transformer-js/src/esmodule-helpers.js");
 parcelHelpers.defineInteropFlag(exports);
 var _react = require("react");
@@ -28439,7 +28478,7 @@ function useImage(imageOrUrl, crossOrigin) {
 }
 exports.default = useImage;
 
-},{"react":"4mchR","@parcel/transformer-js/src/esmodule-helpers.js":"ciiiV"}],"kN5VU":[function(require,module,exports) {
+},{"react":"4mchR","@parcel/transformer-js/src/esmodule-helpers.js":"ciiiV"}],"4OMuv":[function(require,module,exports) {
 var parcelHelpers = require("@parcel/transformer-js/src/esmodule-helpers.js");
 parcelHelpers.defineInteropFlag(exports);
 var _react = require("react");
@@ -28475,7 +28514,7 @@ function useResizeObserver(element) {
 }
 exports.default = useResizeObserver;
 
-},{"react":"4mchR","./useIsomorphicEffect":"e6sqn","@parcel/transformer-js/src/esmodule-helpers.js":"ciiiV"}],"e6sqn":[function(require,module,exports) {
+},{"react":"4mchR","./useIsomorphicEffect":"fxDpu","@parcel/transformer-js/src/esmodule-helpers.js":"ciiiV"}],"fxDpu":[function(require,module,exports) {
 var parcelHelpers = require("@parcel/transformer-js/src/esmodule-helpers.js");
 parcelHelpers.defineInteropFlag(exports);
 var _react = require("react");
@@ -29446,7 +29485,25 @@ function useTimeout() {
 }
 exports.default = useTimeout;
 
-},{"react":"4mchR","./useMounted":"lesmc","./useWillUnmount":"fr49k","@parcel/transformer-js/src/esmodule-helpers.js":"ciiiV"}],"fr49k":[function(require,module,exports) {
+},{"react":"4mchR","./useMounted":"lesmc","./useWillUnmount":"fr49k","@parcel/transformer-js/src/esmodule-helpers.js":"ciiiV"}],"lesmc":[function(require,module,exports) {
+var parcelHelpers = require("@parcel/transformer-js/src/esmodule-helpers.js");
+parcelHelpers.defineInteropFlag(exports);
+var _react = require("react");
+function useMounted() {
+    var mounted = _react.useRef(true);
+    var isMounted = _react.useRef(function() {
+        return mounted.current;
+    });
+    _react.useEffect(function() {
+        return function() {
+            mounted.current = false;
+        };
+    }, []);
+    return isMounted.current;
+}
+exports.default = useMounted;
+
+},{"react":"4mchR","@parcel/transformer-js/src/esmodule-helpers.js":"ciiiV"}],"fr49k":[function(require,module,exports) {
 var parcelHelpers = require("@parcel/transformer-js/src/esmodule-helpers.js");
 parcelHelpers.defineInteropFlag(exports);
 var _useUpdatedRef = require("./useUpdatedRef");
@@ -29900,7 +29957,7 @@ Dropdown.Toggle = _dropdownToggleDefault.default;
 Dropdown.Item = _dropdownItemDefault.default;
 exports.default = Dropdown;
 
-},{"dom-helpers/querySelectorAll":"6tNC8","dom-helpers/addEventListener":"kM7Ny","react":"4mchR","uncontrollable":"aG99Z","@restart/hooks/usePrevious":"6phQk","@restart/hooks/useForceUpdate":"jhYj4","@restart/hooks/useEventListener":"eRR4h","@restart/hooks/useEventCallback":"8QyIg","./DropdownContext":"5UG3w","./DropdownMenu":"70HyH","./DropdownToggle":"2VtXp","./DropdownItem":"kWtLf","./SelectableContext":"6DoIj","./DataKey":"djk1E","./useWindow":"hC2jg","react/jsx-runtime":"6Ds2u","@parcel/transformer-js/src/esmodule-helpers.js":"ciiiV"}],"6tNC8":[function(require,module,exports) {
+},{"dom-helpers/querySelectorAll":"6tNC8","dom-helpers/addEventListener":"kM7Ny","react":"4mchR","uncontrollable":"aG99Z","@restart/hooks/usePrevious":"UwSoS","@restart/hooks/useForceUpdate":"cykiI","@restart/hooks/useEventListener":"dGyPw","@restart/hooks/useEventCallback":"f2VQA","./DropdownContext":"5UG3w","./DropdownMenu":"70HyH","./DropdownToggle":"2VtXp","./DropdownItem":"kWtLf","./SelectableContext":"6DoIj","./DataKey":"djk1E","./useWindow":"hC2jg","react/jsx-runtime":"6Ds2u","@parcel/transformer-js/src/esmodule-helpers.js":"ciiiV"}],"6tNC8":[function(require,module,exports) {
 var parcelHelpers = require("@parcel/transformer-js/src/esmodule-helpers.js");
 parcelHelpers.defineInteropFlag(exports);
 var toArray = Function.prototype.bind.call(Function.prototype.call, [].slice);
@@ -29909,7 +29966,7 @@ function qsa(element, selector) {
 }
 exports.default = qsa;
 
-},{"@parcel/transformer-js/src/esmodule-helpers.js":"ciiiV"}],"jhYj4":[function(require,module,exports) {
+},{"@parcel/transformer-js/src/esmodule-helpers.js":"ciiiV"}],"cykiI":[function(require,module,exports) {
 var parcelHelpers = require("@parcel/transformer-js/src/esmodule-helpers.js");
 parcelHelpers.defineInteropFlag(exports);
 var _react = require("react");
@@ -30046,7 +30103,7 @@ DropdownMenu.displayName = 'DropdownMenu';
 DropdownMenu.defaultProps = defaultProps;
 exports.default = DropdownMenu;
 
-},{"react":"4mchR","@restart/hooks/useCallbackRef":"4MRqx","./DropdownContext":"5UG3w","./usePopper":"608P5","./useRootClose":"gFxBS","./mergeOptionsWithPopperConfig":"4lnJO","react/jsx-runtime":"6Ds2u","@parcel/transformer-js/src/esmodule-helpers.js":"ciiiV"}],"608P5":[function(require,module,exports) {
+},{"react":"4mchR","@restart/hooks/useCallbackRef":"e0LTO","./DropdownContext":"5UG3w","./usePopper":"608P5","./useRootClose":"gFxBS","./mergeOptionsWithPopperConfig":"4lnJO","react/jsx-runtime":"6Ds2u","@parcel/transformer-js/src/esmodule-helpers.js":"ciiiV"}],"608P5":[function(require,module,exports) {
 var parcelHelpers = require("@parcel/transformer-js/src/esmodule-helpers.js");
 parcelHelpers.defineInteropFlag(exports);
 var _react = require("react");
@@ -30239,7 +30296,7 @@ const EMPTY_MODIFIERS = [];
 }
 exports.default = usePopper;
 
-},{"react":"4mchR","dequal":"8VXAH","@restart/hooks/useSafeState":"6gogv","./popper":"3vCF1","@parcel/transformer-js/src/esmodule-helpers.js":"ciiiV"}],"8VXAH":[function(require,module,exports) {
+},{"react":"4mchR","dequal":"8VXAH","@restart/hooks/useSafeState":"4P6QT","./popper":"3vCF1","@parcel/transformer-js/src/esmodule-helpers.js":"ciiiV"}],"8VXAH":[function(require,module,exports) {
 var parcelHelpers = require("@parcel/transformer-js/src/esmodule-helpers.js");
 parcelHelpers.defineInteropFlag(exports);
 parcelHelpers.export(exports, "dequal", ()=>dequal
@@ -30313,7 +30370,7 @@ function dequal(foo, bar) {
     return foo !== foo && bar !== bar;
 }
 
-},{"@parcel/transformer-js/src/esmodule-helpers.js":"ciiiV"}],"6gogv":[function(require,module,exports) {
+},{"@parcel/transformer-js/src/esmodule-helpers.js":"ciiiV"}],"4P6QT":[function(require,module,exports) {
 var parcelHelpers = require("@parcel/transformer-js/src/esmodule-helpers.js");
 parcelHelpers.defineInteropFlag(exports);
 var _react = require("react");
@@ -30334,7 +30391,7 @@ function useSafeState(state) {
 }
 exports.default = useSafeState;
 
-},{"react":"4mchR","./useMounted":"lesmc","@parcel/transformer-js/src/esmodule-helpers.js":"ciiiV"}],"3vCF1":[function(require,module,exports) {
+},{"react":"4mchR","./useMounted":"58qhK","@parcel/transformer-js/src/esmodule-helpers.js":"ciiiV"}],"3vCF1":[function(require,module,exports) {
 var parcelHelpers = require("@parcel/transformer-js/src/esmodule-helpers.js");
 parcelHelpers.defineInteropFlag(exports);
 parcelHelpers.export(exports, "createPopper", ()=>createPopper
@@ -32524,7 +32581,7 @@ const getRefTarget = (ref)=>ref && ('current' in ref ? ref.current : ref)
 }
 exports.default = useRootClose;
 
-},{"dom-helpers/contains":"asPpd","dom-helpers/listen":"fotiI","dom-helpers/ownerDocument":"b8OFQ","react":"4mchR","@restart/hooks/useEventCallback":"8QyIg","warning":"4vouU","@parcel/transformer-js/src/esmodule-helpers.js":"ciiiV"}],"asPpd":[function(require,module,exports) {
+},{"dom-helpers/contains":"asPpd","dom-helpers/listen":"fotiI","dom-helpers/ownerDocument":"b8OFQ","react":"4mchR","@restart/hooks/useEventCallback":"f2VQA","warning":"4vouU","@parcel/transformer-js/src/esmodule-helpers.js":"ciiiV"}],"asPpd":[function(require,module,exports) {
 var parcelHelpers = require("@parcel/transformer-js/src/esmodule-helpers.js");
 parcelHelpers.defineInteropFlag(exports);
 function contains(context, node) {
@@ -32869,7 +32926,7 @@ const DropdownItem = /*#__PURE__*/ _react.forwardRef((_ref, ref)=>{
 DropdownItem.displayName = 'DropdownItem';
 exports.default = DropdownItem;
 
-},{"react":"4mchR","@restart/hooks/useEventCallback":"8QyIg","./SelectableContext":"6DoIj","./NavContext":"8F9CB","./Button":"3AURZ","./DataKey":"djk1E","react/jsx-runtime":"6Ds2u","@parcel/transformer-js/src/esmodule-helpers.js":"ciiiV"}],"6DoIj":[function(require,module,exports) {
+},{"react":"4mchR","@restart/hooks/useEventCallback":"f2VQA","./SelectableContext":"6DoIj","./NavContext":"8F9CB","./Button":"3AURZ","./DataKey":"djk1E","react/jsx-runtime":"6Ds2u","@parcel/transformer-js/src/esmodule-helpers.js":"ciiiV"}],"6DoIj":[function(require,module,exports) {
 var parcelHelpers = require("@parcel/transformer-js/src/esmodule-helpers.js");
 parcelHelpers.defineInteropFlag(exports);
 parcelHelpers.export(exports, "makeEventKey", ()=>makeEventKey
@@ -33083,7 +33140,16 @@ DropdownMenu.displayName = 'DropdownMenu';
 DropdownMenu.defaultProps = defaultProps;
 exports.default = DropdownMenu;
 
-},{"classnames":"2cVcN","react":"4mchR","@restart/ui/DropdownMenu":"70HyH","@restart/hooks/useIsomorphicEffect":"e6sqn","@restart/hooks/useMergedRefs":"fj3d7","warning":"4vouU","./DropdownContext":"kQHR9","./InputGroupContext":"8dQQC","./NavbarContext":"1TV6u","./ThemeProvider":"oG7Uz","./useWrappedRefWithWarning":"aSYIB","./types":"gcZF4","react/jsx-runtime":"6Ds2u","@parcel/transformer-js/src/esmodule-helpers.js":"ciiiV"}],"8dQQC":[function(require,module,exports) {
+},{"classnames":"2cVcN","react":"4mchR","@restart/ui/DropdownMenu":"70HyH","@restart/hooks/useIsomorphicEffect":"e6sqn","@restart/hooks/useMergedRefs":"fj3d7","warning":"4vouU","./DropdownContext":"kQHR9","./InputGroupContext":"8dQQC","./NavbarContext":"1TV6u","./ThemeProvider":"oG7Uz","./useWrappedRefWithWarning":"aSYIB","./types":"gcZF4","react/jsx-runtime":"6Ds2u","@parcel/transformer-js/src/esmodule-helpers.js":"ciiiV"}],"e6sqn":[function(require,module,exports) {
+var parcelHelpers = require("@parcel/transformer-js/src/esmodule-helpers.js");
+parcelHelpers.defineInteropFlag(exports);
+var _react = require("react");
+var global = arguments[3];
+var isReactNative = typeof global !== 'undefined' && global.navigator && global.navigator.product === 'ReactNative';
+var isDOM = typeof document !== 'undefined';
+exports.default = isDOM || isReactNative ? _react.useLayoutEffect : _react.useEffect;
+
+},{"react":"4mchR","@parcel/transformer-js/src/esmodule-helpers.js":"ciiiV"}],"8dQQC":[function(require,module,exports) {
 var parcelHelpers = require("@parcel/transformer-js/src/esmodule-helpers.js");
 parcelHelpers.defineInteropFlag(exports);
 var _react = require("react");
@@ -34072,7 +34138,51 @@ exports.default = Object.assign(Nav, {
     Item: _navItemDefault.default
 });
 
-},{"dom-helpers/querySelectorAll":"6tNC8","react":"4mchR","@restart/hooks/useForceUpdate":"jhYj4","@restart/hooks/useMergedRefs":"fj3d7","./NavContext":"8F9CB","./SelectableContext":"6DoIj","./TabContext":"gm1bN","./DataKey":"djk1E","./NavItem":"cgqID","react/jsx-runtime":"6Ds2u","@parcel/transformer-js/src/esmodule-helpers.js":"ciiiV"}],"gm1bN":[function(require,module,exports) {
+},{"dom-helpers/querySelectorAll":"6tNC8","react":"4mchR","@restart/hooks/useForceUpdate":"cykiI","@restart/hooks/useMergedRefs":"iIPt2","./NavContext":"8F9CB","./SelectableContext":"6DoIj","./TabContext":"gm1bN","./DataKey":"djk1E","./NavItem":"cgqID","react/jsx-runtime":"6Ds2u","@parcel/transformer-js/src/esmodule-helpers.js":"ciiiV"}],"iIPt2":[function(require,module,exports) {
+var parcelHelpers = require("@parcel/transformer-js/src/esmodule-helpers.js");
+parcelHelpers.defineInteropFlag(exports);
+parcelHelpers.export(exports, "mergeRefs", ()=>mergeRefs
+);
+var _react = require("react");
+var toFnRef = function toFnRef(ref) {
+    return !ref || typeof ref === 'function' ? ref : function(value) {
+        ref.current = value;
+    };
+};
+function mergeRefs(refA, refB) {
+    var a = toFnRef(refA);
+    var b = toFnRef(refB);
+    return function(value) {
+        if (a) a(value);
+        if (b) b(value);
+    };
+}
+/**
+ * Create and returns a single callback ref composed from two other Refs.
+ *
+ * ```tsx
+ * const Button = React.forwardRef((props, ref) => {
+ *   const [element, attachRef] = useCallbackRef<HTMLButtonElement>();
+ *   const mergedRef = useMergedRefs(ref, attachRef);
+ *
+ *   return <button ref={mergedRef} {...props}/>
+ * })
+ * ```
+ *
+ * @param refA A Callback or mutable Ref
+ * @param refB A Callback or mutable Ref
+ * @category refs
+ */ function useMergedRefs(refA, refB) {
+    return _react.useMemo(function() {
+        return mergeRefs(refA, refB);
+    }, [
+        refA,
+        refB
+    ]);
+}
+exports.default = useMergedRefs;
+
+},{"react":"4mchR","@parcel/transformer-js/src/esmodule-helpers.js":"ciiiV"}],"gm1bN":[function(require,module,exports) {
 var parcelHelpers = require("@parcel/transformer-js/src/esmodule-helpers.js");
 parcelHelpers.defineInteropFlag(exports);
 var _react = require("react");
@@ -34166,7 +34276,7 @@ const NavItem = /*#__PURE__*/ _react.forwardRef((_ref, ref)=>{
 NavItem.displayName = 'NavItem';
 exports.default = NavItem;
 
-},{"react":"4mchR","@restart/hooks/useEventCallback":"8QyIg","./NavContext":"8F9CB","./SelectableContext":"6DoIj","./Button":"3AURZ","./DataKey":"djk1E","react/jsx-runtime":"6Ds2u","@parcel/transformer-js/src/esmodule-helpers.js":"ciiiV"}],"lStPp":[function(require,module,exports) {
+},{"react":"4mchR","@restart/hooks/useEventCallback":"f2VQA","./NavContext":"8F9CB","./SelectableContext":"6DoIj","./Button":"3AURZ","./DataKey":"djk1E","react/jsx-runtime":"6Ds2u","@parcel/transformer-js/src/esmodule-helpers.js":"ciiiV"}],"lStPp":[function(require,module,exports) {
 var parcelHelpers = require("@parcel/transformer-js/src/esmodule-helpers.js");
 parcelHelpers.defineInteropFlag(exports);
 var _classnames = require("classnames");
@@ -34471,7 +34581,16 @@ function scrollbarSize(recalc) {
 }
 exports.default = scrollbarSize;
 
-},{"./canUseDOM":"b2ppt","@parcel/transformer-js/src/esmodule-helpers.js":"ciiiV"}],"2BxPy":[function(require,module,exports) {
+},{"./canUseDOM":"b2ppt","@parcel/transformer-js/src/esmodule-helpers.js":"ciiiV"}],"4MRqx":[function(require,module,exports) {
+var parcelHelpers = require("@parcel/transformer-js/src/esmodule-helpers.js");
+parcelHelpers.defineInteropFlag(exports);
+var _react = require("react");
+function useCallbackRef() {
+    return _react.useState(null);
+}
+exports.default = useCallbackRef;
+
+},{"react":"4mchR","@parcel/transformer-js/src/esmodule-helpers.js":"ciiiV"}],"2BxPy":[function(require,module,exports) {
 var parcelHelpers = require("@parcel/transformer-js/src/esmodule-helpers.js");
 parcelHelpers.defineInteropFlag(exports);
 /* eslint-disable @typescript-eslint/no-use-before-define, react/prop-types */ var _activeElement = require("dom-helpers/activeElement");
@@ -34719,7 +34838,7 @@ exports.default = Object.assign(Modal, {
     Manager: _modalManagerDefault.default
 });
 
-},{"dom-helpers/activeElement":"7gRL6","dom-helpers/contains":"asPpd","dom-helpers/canUseDOM":"b2ppt","dom-helpers/listen":"fotiI","react":"4mchR","react-dom":"afyCw","@restart/hooks/useMounted":"lesmc","@restart/hooks/useWillUnmount":"fr49k","@restart/hooks/usePrevious":"6phQk","@restart/hooks/useEventCallback":"8QyIg","./ModalManager":"jg7yG","./useWaitForDOMRef":"fWRMw","./useWindow":"hC2jg","react/jsx-runtime":"6Ds2u","@parcel/transformer-js/src/esmodule-helpers.js":"ciiiV"}],"7gRL6":[function(require,module,exports) {
+},{"dom-helpers/activeElement":"7gRL6","dom-helpers/contains":"asPpd","dom-helpers/canUseDOM":"b2ppt","dom-helpers/listen":"fotiI","react":"4mchR","react-dom":"afyCw","@restart/hooks/useMounted":"58qhK","@restart/hooks/useWillUnmount":"4wq5A","@restart/hooks/usePrevious":"UwSoS","@restart/hooks/useEventCallback":"f2VQA","./ModalManager":"jg7yG","./useWaitForDOMRef":"fWRMw","./useWindow":"hC2jg","react/jsx-runtime":"6Ds2u","@parcel/transformer-js/src/esmodule-helpers.js":"ciiiV"}],"7gRL6":[function(require,module,exports) {
 var parcelHelpers = require("@parcel/transformer-js/src/esmodule-helpers.js");
 parcelHelpers.defineInteropFlag(exports);
 var _ownerDocument = require("./ownerDocument");
@@ -34739,7 +34858,34 @@ function activeElement(doc) {
 }
 exports.default = activeElement;
 
-},{"./ownerDocument":"b8OFQ","@parcel/transformer-js/src/esmodule-helpers.js":"ciiiV"}],"jg7yG":[function(require,module,exports) {
+},{"./ownerDocument":"b8OFQ","@parcel/transformer-js/src/esmodule-helpers.js":"ciiiV"}],"4wq5A":[function(require,module,exports) {
+var parcelHelpers = require("@parcel/transformer-js/src/esmodule-helpers.js");
+parcelHelpers.defineInteropFlag(exports);
+var _useUpdatedRef = require("./useUpdatedRef");
+var _useUpdatedRefDefault = parcelHelpers.interopDefault(_useUpdatedRef);
+var _react = require("react");
+function useWillUnmount(fn) {
+    var onUnmount = _useUpdatedRefDefault.default(fn);
+    _react.useEffect(function() {
+        return function() {
+            return onUnmount.current();
+        };
+    }, []);
+}
+exports.default = useWillUnmount;
+
+},{"./useUpdatedRef":"81GAV","react":"4mchR","@parcel/transformer-js/src/esmodule-helpers.js":"ciiiV"}],"81GAV":[function(require,module,exports) {
+var parcelHelpers = require("@parcel/transformer-js/src/esmodule-helpers.js");
+parcelHelpers.defineInteropFlag(exports);
+var _react = require("react");
+function useUpdatedRef(value) {
+    var valueRef = _react.useRef(value);
+    valueRef.current = value;
+    return valueRef;
+}
+exports.default = useUpdatedRef;
+
+},{"react":"4mchR","@parcel/transformer-js/src/esmodule-helpers.js":"ciiiV"}],"jg7yG":[function(require,module,exports) {
 var parcelHelpers = require("@parcel/transformer-js/src/esmodule-helpers.js");
 parcelHelpers.defineInteropFlag(exports);
 parcelHelpers.export(exports, "OPEN_DATA_ATTRIBUTE", ()=>OPEN_DATA_ATTRIBUTE
@@ -35913,7 +36059,7 @@ var _jsxRuntime = require("react/jsx-runtime");
 Overlay.displayName = 'Overlay';
 exports.default = Overlay;
 
-},{"react":"4mchR","react-dom":"afyCw","@restart/hooks/useCallbackRef":"4MRqx","@restart/hooks/useMergedRefs":"fj3d7","./usePopper":"608P5","./useRootClose":"gFxBS","./useWaitForDOMRef":"fWRMw","./mergeOptionsWithPopperConfig":"4lnJO","react/jsx-runtime":"6Ds2u","@parcel/transformer-js/src/esmodule-helpers.js":"ciiiV"}],"JceeM":[function(require,module,exports) {
+},{"react":"4mchR","react-dom":"afyCw","@restart/hooks/useCallbackRef":"e0LTO","@restart/hooks/useMergedRefs":"iIPt2","./usePopper":"608P5","./useRootClose":"gFxBS","./useWaitForDOMRef":"fWRMw","./mergeOptionsWithPopperConfig":"4lnJO","react/jsx-runtime":"6Ds2u","@parcel/transformer-js/src/esmodule-helpers.js":"ciiiV"}],"JceeM":[function(require,module,exports) {
 var parcelHelpers = require("@parcel/transformer-js/src/esmodule-helpers.js");
 parcelHelpers.defineInteropFlag(exports);
 var _react = require("react");
@@ -38388,7 +38534,7 @@ if (typeof window !== "undefined") {
     global[key] = "esm";
 }
 
-},{"@babel/runtime/helpers/esm/inheritsLoose":"6cZja","react":"4mchR","prop-types":"2bysO","history":"7Kc8n","tiny-warning":"eDUdC","mini-create-react-context":"dGlTt","tiny-invariant":"9t1GA","@babel/runtime/helpers/esm/extends":"5inYT","path-to-regexp":"5Ehp7","react-is":"5KyfE","@babel/runtime/helpers/esm/objectWithoutPropertiesLoose":"9unNO","hoist-non-react-statics":"6NILB","@parcel/transformer-js/src/esmodule-helpers.js":"ciiiV"}],"7Kc8n":[function(require,module,exports) {
+},{"@babel/runtime/helpers/esm/inheritsLoose":"6cZja","react":"4mchR","prop-types":"2bysO","history":"7Kc8n","tiny-warning":"eDUdC","mini-create-react-context":"dGlTt","tiny-invariant":"9t1GA","@babel/runtime/helpers/esm/extends":"5inYT","path-to-regexp":"aN7wA","react-is":"5KyfE","@babel/runtime/helpers/esm/objectWithoutPropertiesLoose":"9unNO","hoist-non-react-statics":"6NILB","@parcel/transformer-js/src/esmodule-helpers.js":"ciiiV"}],"7Kc8n":[function(require,module,exports) {
 var parcelHelpers = require("@parcel/transformer-js/src/esmodule-helpers.js");
 parcelHelpers.defineInteropFlag(exports);
 parcelHelpers.export(exports, "createBrowserHistory", ()=>createBrowserHistory
@@ -39363,7 +39509,7 @@ function createReactContext(defaultValue, calculateChangedBits) {
 var index = _reactDefault.default.createContext || createReactContext;
 exports.default = index;
 
-},{"react":"4mchR","@babel/runtime/helpers/esm/inheritsLoose":"6cZja","prop-types":"2bysO","tiny-warning":"eDUdC","@parcel/transformer-js/src/esmodule-helpers.js":"ciiiV"}],"5Ehp7":[function(require,module,exports) {
+},{"react":"4mchR","@babel/runtime/helpers/esm/inheritsLoose":"6cZja","prop-types":"2bysO","tiny-warning":"eDUdC","@parcel/transformer-js/src/esmodule-helpers.js":"ciiiV"}],"aN7wA":[function(require,module,exports) {
 var isarray = require('isarray');
 /**
  * Expose `pathToRegexp`.
@@ -39671,7 +39817,7 @@ module.exports.tokensToRegExp = tokensToRegExp;
     return stringToRegexp(path, keys, options);
 }
 
-},{"isarray":"6igwu"}],"6igwu":[function(require,module,exports) {
+},{"isarray":"3GS68"}],"3GS68":[function(require,module,exports) {
 module.exports = Array.isArray || function(arr) {
     return Object.prototype.toString.call(arr) == '[object Array]';
 };
