@@ -3,15 +3,17 @@ import axios from 'axios';
 import { Button, Card, Col, Form, Row, Container } from 'react-bootstrap';
 import { MovieCard } from '../movie-card/movie-card';
 import './profile-view.scss';
+import { setUser, updateUser } from "../../actions/actions";
+import { connect } from "react-redux";
 
 export class UserView extends React.Component {
     constructor() {
         super();
         this.state = {
-            // username: null,
-            // password: null,
-            // email: null,
-            // birthday: null,
+            username: null,
+            password: null,
+            email: null,
+            birthday: null,
 
         };
     }
@@ -20,28 +22,6 @@ export class UserView extends React.Component {
         this.props.getUser()
     }
 
-    // getUser() {
-    //     const user = localStorage.getItem("user");
-    //     const token = localStorage.getItem("token");
-    //     axios
-    //         .get(`https://oscarsmyflixapp.herokuapp.com/users/${user}`, {
-    //             headers: { Authorization: `Bearer ${token}` },
-    //         })
-    //         .then((response) => {
-    //             const data = response.data;
-    //             console.log(data)
-    //             this.setState({
-    //                 Username: response.data.Username,
-    //                 Password: response.data.Password,
-    //                 Email: response.data.Email,
-    //                 Birthday: response.data.Birthday,
-    //                 Favorites: response.data.FavoriteMovies
-    //             });
-    //         })
-    //         .catch(function (error) {
-    //             console.log(error);
-    //         });
-    // };
 
     onRemoveFavorite = (m) => {
         const user = localStorage.getItem('user');
@@ -137,7 +117,7 @@ export class UserView extends React.Component {
     }
 
     render() {
-        const { username, email, birthday, favorites, movieData } = this.props
+        const { username, email, birthday, favorites, movieData, user } = this.props
         console.log(movieData)
         console.log(this.props)
         let favoriteMovies = []
@@ -243,26 +223,7 @@ export class UserView extends React.Component {
 
                     ))}
 
-                    {/* {favorites && favorites.map((movieData) => (
-                        <Col xs={6} md={4} lg={3} key={movieData._id}>
-                            <MovieCard movieData={movieData} />
-                        </Col>
-                    ))} */}
 
-                    {/* {favorites && favorites.map((movieID) => {
-                        console.log('m', movieID)
-                        let favoriteMovies = []
-
-                        movieData.forEach((element) => {
-                            const movieKey = element._id
-                            const
-
-                        })
-
-                        return <Col xs={6} md={4} lg={3} key={movieData._id}>
-                            <MovieCard movieData={movieData} />
-                        </Col>
-                    })} */}
                 </Row>
 
 
@@ -272,3 +233,12 @@ export class UserView extends React.Component {
     }
 
 }
+
+let mapStateToProps = (state) => {
+    return {
+        user: state.user,
+        movies: state.movies
+    };
+};
+
+export default connect(mapStateToProps, { setUser, updateUser })(UserView);

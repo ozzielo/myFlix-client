@@ -40,19 +40,6 @@
 .login-view-div {
   font-family: "Georgia", sans-serif;
 }
-.movieContainer {
-  display: inline-block;
-}
-
-.movieCard {
-  margin-top: 20px;
-}
-
-.cardImage {
-  width: 100% !important;
-  height: 100% !important;
-  object-fit: cover;
-}
 .moviesContainer {
   width: 100%;
   height: 100vh;
@@ -90,6 +77,19 @@
 }
 .registration-view-div {
   font-family: "Georgia", sans-serif;
+}
+.movieContainer {
+  display: inline-block;
+}
+
+.movieCard {
+  margin-top: 20px;
+}
+
+.cardImage {
+  width: 100% !important;
+  height: 100% !important;
+  object-fit: cover;
 }
 .navbar-div {
   font-family: "Georgia", sans-serif;
