@@ -3,17 +3,17 @@ import axios from 'axios';
 import { Button, Card, Col, Form, Row, Container } from 'react-bootstrap';
 import { MovieCard } from '../movie-card/movie-card';
 import './profile-view.scss';
-import { setUser, updateUser } from "../../actions/actions";
+import { setMovies, setUser, updateUser } from "../../actions/actions";
 import { connect } from "react-redux";
 
-export class UserView extends React.Component {
+class UserView extends React.Component {
     constructor() {
         super();
         this.state = {
-            username: null,
-            password: null,
-            email: null,
-            birthday: null,
+            // username: null,
+            // password: null,
+            // email: null,
+            // birthday: null,
 
         };
     }
@@ -117,23 +117,27 @@ export class UserView extends React.Component {
     }
 
     render() {
-        const { username, email, birthday, favorites, movieData, user } = this.props
-        console.log(movieData)
-        console.log(this.props)
+        const { movies, user } = this.props
+
+        // console.log(movieData)
+        console.log(".", user)
         let favoriteMovies = []
 
-        movieData.forEach((movie) => {
-            const movieID = movie._id
-            favorites.forEach((favoriteMovieID) => {
-                console.log(favoriteMovieID);
+        if (user.favorites) {
+            movies.forEach((movie) => {
+                const movieID = movie._id
+                user.favorites.forEach((favoriteMovieID) => {
+                    console.log(favoriteMovieID);
 
-                if (movieID === favoriteMovieID) {
-                    // if this is the case, then we have found a movie for target genre
-                    favoriteMovies.push(movie)
-                }
+                    if (movieID === favoriteMovieID) {
+                        // if this is the case, then we have found a movie for target genre
+                        favoriteMovies.push(movie)
+                    }
+                })
+
             })
+        }
 
-        })
         console.log(favoriteMovies);
 
 
@@ -145,9 +149,9 @@ export class UserView extends React.Component {
                     <Card.Body>
                         <Card.Title>MY PROFILE</Card.Title>
                         <div>
-                            <h4>Username: {username}</h4>
-                            <h4>Email: {email}</h4>
-                            <h4>Birthday: {birthday}</h4>
+                            <h4>Username: {user.username}</h4>
+                            <h4>Email: {user.email}</h4>
+                            <h4>Birthday: {user.birthday}</h4>
                         </div>
                         {/* <div>
                             <span className="label">Description: </span>
@@ -235,6 +239,7 @@ export class UserView extends React.Component {
 }
 
 let mapStateToProps = (state) => {
+    console.log(">>>>>>", state);
     return {
         user: state.user,
         movies: state.movies

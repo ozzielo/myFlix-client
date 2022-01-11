@@ -10,7 +10,7 @@ import { RegistrationView } from '../registration-view/registration-view';
 import { DirectorView } from '../director-view/director-view';
 import { GenreView } from '../genre-view/genre-view';
 import { NavBarView } from '../navbar-view/navbar';
-import { UserView } from '../profile-view/profile-view'
+import UserView from '../profile-view/profile-view'
 import { Navbar, Nav, Container, Row, Col } from 'react-bootstrap';
 import { BrowserRouter as Router, Route, Redirect } from "react-router-dom";
 // import { setMovies } from '../actions/actions';
@@ -86,25 +86,7 @@ class MainView extends React.Component {
         });
     }
 
-    // getUser() {
-    //     const user = localStorage.getItem("user");
-    //     const token = localStorage.getItem("token");
-    //     axios.get(`https://oscarsmyflixapp.herokuapp.com/users/${user}`, {
-    //         headers: { Authorization: `Bearer ${token}` },
-    //     })
-    //         .then((response) => {
-    //             this.props.setUser({
-    //                 username: response.data.Username,
-    //                 password: response.data.Password,
-    //                 email: response.data.Email,
-    //                 birthday: response.data.Birthday,
-    //                 favorites: response.data.FavoriteMovies
-    //             });
-    //         })
-    //         .catch(function (error) {
-    //             console.log(error);
-    //         });
-    // }
+
 
     getUser() {
         const user = localStorage.getItem("user");
@@ -113,7 +95,7 @@ class MainView extends React.Component {
             headers: { Authorization: `Bearer ${token}` },
         })
             .then((response) => {
-                this.setState({
+                this.props.setUser({
                     username: response.data.Username,
                     password: response.data.Password,
                     email: response.data.Email,
@@ -126,11 +108,31 @@ class MainView extends React.Component {
             });
     }
 
+    // getUser() {
+    //     const user = localStorage.getItem("user");
+    //     const token = localStorage.getItem("token");
+    //     axios.get(`https://oscarsmyflixapp.herokuapp.com/users/${user}`, {
+    //         headers: { Authorization: `Bearer ${token}` },
+    //     })
+    //         .then((response) => {
+    //             this.setState({
+    //                 username: response.data.Username,
+    //                 password: response.data.Password,
+    //                 email: response.data.Email,
+    //                 birthday: response.data.Birthday,
+    //                 favorites: response.data.FavoriteMovies
+    //             });
+    //         })
+    //         .catch(function (error) {
+    //             console.log(error);
+    //         });
+    // }
+
 
     render() {
 
-        let { movies, user } = this.props;
-        const { username, password, email, birthday, favorites, register } = this.state;
+        let { movies } = this.props;
+        const { username, password, email, birthday, favorites, user, register } = this.state;
         //  if (!user) return <Row>
         //     <Col>
         //         <LoginView onLoggedIn={user => this.onLoggedIn(user)} />
@@ -264,13 +266,11 @@ class MainView extends React.Component {
                                 <br />
                                 <br />
                                 <br />
-                                <UserView username={username} password={password} email={email}
-                                    birthday={birthday} favorites={favorites} movieData={movies}
-                                    getUser={this.getUser} user={user}
-                                    onBackClick={() => history.goBack()} removeMovie={(_id) => this.onRemoveFavorite(_id)} />
-
-
-
+                                <UserView
+                                    getUser={this.getUser}
+                                    onBackClick={() => history.goBack()}
+                                    removeMovie={(_id) => this.onRemoveFavorite(_id)}
+                                />
                             </Col>
 
                         }
