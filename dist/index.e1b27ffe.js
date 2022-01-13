@@ -970,21 +970,13 @@ class MyFlixApplication extends _reactDefault.default.Component {
                 columnNumber: 13
             },
             __self: this,
-            children: /*#__PURE__*/ _jsxRuntime.jsx(_containerDefault.default, {
+            children: /*#__PURE__*/ _jsxRuntime.jsx(_mainViewDefault.default, {
                 __source: {
                     fileName: "src/index.jsx",
-                    lineNumber: 17,
+                    lineNumber: 18,
                     columnNumber: 17
                 },
-                __self: this,
-                children: /*#__PURE__*/ _jsxRuntime.jsx(_mainViewDefault.default, {
-                    __source: {
-                        fileName: "src/index.jsx",
-                        lineNumber: 18,
-                        columnNumber: 21
-                    },
-                    __self: this
-                })
+                __self: this
             })
         }));
     }
@@ -24742,9 +24734,9 @@ function LoginView(props) {
             Password: password
         }).then((response)=>{
             const data = response.data;
-            console.log('>', data);
+            console.log(data);
             const userData = data.user;
-            console.log('?', userData);
+            console.log(userData);
             props.onLoggedIn(data);
         }).catch((e)=>{
             console.log('no such user');
@@ -43479,56 +43471,60 @@ function MoviesList(props) {
     }));
     return(/*#__PURE__*/ _jsxRuntime.jsxs(_jsxRuntime.Fragment, {
         children: [
-            /*#__PURE__*/ _jsxRuntime.jsx("br", {
-                __source: {
-                    fileName: "src/components/movies-list/movies-list.jsx",
-                    lineNumber: 24,
-                    columnNumber: 9
+            /*#__PURE__*/ _jsxRuntime.jsxs(_colDefault.default, {
+                sm: 10,
+                style: {
+                    marginLeft: "4em"
                 },
-                __self: this
-            }),
-            /*#__PURE__*/ _jsxRuntime.jsx("br", {
                 __source: {
                     fileName: "src/components/movies-list/movies-list.jsx",
                     lineNumber: 25,
                     columnNumber: 9
                 },
-                __self: this
-            }),
-            /*#__PURE__*/ _jsxRuntime.jsx("br", {
-                __source: {
-                    fileName: "src/components/movies-list/movies-list.jsx",
-                    lineNumber: 26,
-                    columnNumber: 9
-                },
-                __self: this
-            }),
-            /*#__PURE__*/ _jsxRuntime.jsx(_colDefault.default, {
-                md: 12,
-                style: {
-                    margin: '1em'
-                },
-                __source: {
-                    fileName: "src/components/movies-list/movies-list.jsx",
-                    lineNumber: 27,
-                    columnNumber: 9
-                },
                 __self: this,
-                children: /*#__PURE__*/ _jsxRuntime.jsx(_visibilityFilterInputDefault.default, {
-                    visibilityFilter: visibilityFilter,
-                    __source: {
-                        fileName: "src/components/movies-list/movies-list.jsx",
-                        lineNumber: 28,
-                        columnNumber: 13
-                    },
-                    __self: this
-                })
+                children: [
+                    /*#__PURE__*/ _jsxRuntime.jsx("br", {
+                        __source: {
+                            fileName: "src/components/movies-list/movies-list.jsx",
+                            lineNumber: 26,
+                            columnNumber: 13
+                        },
+                        __self: this
+                    }),
+                    /*#__PURE__*/ _jsxRuntime.jsx("br", {
+                        __source: {
+                            fileName: "src/components/movies-list/movies-list.jsx",
+                            lineNumber: 27,
+                            columnNumber: 13
+                        },
+                        __self: this
+                    }),
+                    /*#__PURE__*/ _jsxRuntime.jsx("br", {
+                        __source: {
+                            fileName: "src/components/movies-list/movies-list.jsx",
+                            lineNumber: 28,
+                            columnNumber: 13
+                        },
+                        __self: this
+                    }),
+                    /*#__PURE__*/ _jsxRuntime.jsx(_visibilityFilterInputDefault.default, {
+                        visibilityFilter: visibilityFilter,
+                        __source: {
+                            fileName: "src/components/movies-list/movies-list.jsx",
+                            lineNumber: 29,
+                            columnNumber: 13
+                        },
+                        __self: this
+                    })
+                ]
             }),
             filteredMovies.map((m)=>/*#__PURE__*/ _jsxRuntime.jsx(_colDefault.default, {
-                    md: 3,
+                    md: 4,
+                    lg: 3,
+                    sm: 6,
                     __source: {
                         fileName: "src/components/movies-list/movies-list.jsx",
-                        lineNumber: 31,
+                        lineNumber: 32,
                         columnNumber: 13
                     },
                     __self: this,
@@ -43536,7 +43532,7 @@ function MoviesList(props) {
                         movieData: m,
                         __source: {
                             fileName: "src/components/movies-list/movies-list.jsx",
-                            lineNumber: 32,
+                            lineNumber: 33,
                             columnNumber: 17
                         },
                         __self: this
@@ -43574,6 +43570,7 @@ var _formDefault = parcelHelpers.interopDefault(_form);
 var _actions = require("../../actions/actions");
 function VisibilityFilterInput(props) {
     return(/*#__PURE__*/ _jsxRuntime.jsx(_formDefault.default.Control, {
+        className: "visibility-filter",
         onChange: (e)=>props.setFilter(e.target.value)
         ,
         value: props.visibilityFilter,

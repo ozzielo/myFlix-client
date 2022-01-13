@@ -41,11 +41,11 @@ export function LoginView(props) {
             })
                 .then(response => {
                     const data = response.data;
-                    console.log('>', data)
+                    console.log(data)
 
 
                     const userData = data.user
-                    console.log('?', userData)
+                    console.log(userData)
 
 
                     props.onLoggedIn(data);

@@ -7,6 +7,7 @@ import { setFilter } from '../../actions/actions';
 
 function VisibilityFilterInput(props) {
     return <Form.Control
+        className="visibility-filter"
         onChange={e => props.setFilter(e.target.value)}
         value={props.visibilityFilter}
         placeholder="filter"

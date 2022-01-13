@@ -31,6 +31,8 @@
     "redux-devtools-extension": "^2.13.9"
   },
   "devDependencies": {
+    "@parcel/transformer-html": "^2.1.1",
+    "@parcel/transformer-posthtml": "^2.1.1",
     "@parcel/transformer-sass": "^2.0.1",
     "sass": "^1.32.11"
   }

@@ -3,7 +3,7 @@ import axios from 'axios';
 import { Button, Card, Col, Form, Row, Container } from 'react-bootstrap';
 import { MovieCard } from '../movie-card/movie-card';
 import './profile-view.scss';
-import { setMovies, setUser, updateUser } from "../../actions/actions";
+import { setUser, updateUser } from "../../actions/actions";
 import { connect } from "react-redux";
 
 class UserView extends React.Component {
