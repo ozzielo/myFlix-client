@@ -1,39 +1,40 @@
 {
   "name": "myflix-client",
   "version": "1.0.0",
-  "description": "",
-  "default": "src/index.html",
+  "description": "myflix-client",
+  "source": "src/index.html",
+  "type": "module",
   "scripts": {
-    "start": "parcel index.html",
-    "build": "parcel build index.html",
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "test": "npm test",
+    "start": "parcel",
+    "build": "parcel build"
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/ozzielo/myFlix-client.git"
+    "url": "git+https://github.com/geetasrip/myFlix-client.git"
   },
   "author": "",
   "license": "ISC",
   "bugs": {
-    "url": "https://github.com/ozzielo/myFlix-client/issues"
+    "url": "https://github.com/geetasrip/myFlix-client/issues"
   },
-  "homepage": "https://github.com/ozzielo/myFlix-client#readme",
+  "homepage": "https://github.com/geetasrip/myFlix-client#readme",
   "dependencies": {
-    "axios": "^0.21.1",
-    "parcel": "^2.0.1",
-    "prop-types": "^15.7.2",
+    "axios": "^0.24.0",
+    "eslint": "^8.6.0",
+    "prop-types": "^15.8.1",
     "react": "^17.0.2",
-    "react-bootstrap": "^2.0.3",
+    "react-bootstrap": "^2.1.1",
+    "react-confirm-box": "^1.2.0",
     "react-dom": "^17.0.2",
     "react-redux": "^7.2.6",
-    "react-router-dom": "5.3.0",
+    "react-router": "^5.2.0",
+    "react-router-dom": "^5.2.0",
     "redux": "^4.1.2",
     "redux-devtools-extension": "^2.13.9"
   },
   "devDependencies": {
-    "@parcel/transformer-html": "^2.1.1",
-    "@parcel/transformer-posthtml": "^2.1.1",
-    "@parcel/transformer-sass": "^2.0.1",
-    "sass": "^1.32.11"
+    "@parcel/transformer-sass": "^2.2.1",
+    "parcel": "^2.2.1"
   }
 }
