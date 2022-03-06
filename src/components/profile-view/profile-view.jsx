@@ -10,10 +10,6 @@ class UserView extends React.Component {
     constructor() {
         super();
         this.state = {
-            // username: null,
-            // password: null,
-            // email: null,
-            // birthday: null,
 
         };
     }
@@ -119,7 +115,6 @@ class UserView extends React.Component {
     render() {
         const { movies, user } = this.props
 
-        // console.log(movieData)
         console.log(".", user)
         let favoriteMovies = []
 
@@ -130,7 +125,6 @@ class UserView extends React.Component {
                     console.log(favoriteMovieID);
 
                     if (movieID === favoriteMovieID) {
-                        // if this is the case, then we have found a movie for target genre
                         favoriteMovies.push(movie)
                     }
                 })
@@ -153,13 +147,6 @@ class UserView extends React.Component {
                             <h4>Email: {user.email}</h4>
                             <h4>Birthday: {user.birthday}</h4>
                         </div>
-                        {/* <div>
-                            <span className="label">Description: </span>
-                            <span className="value">{genre.Description}</span>
-                        </div>
-                        <div className="genre-button-div">
-                            <Button className="genre-button" bg="dark" variant="dark" onClick={() => { onBackClick(null); }}>Back</Button>
-                        </div> */}
                     </Card.Body>
                 </Card>
                 <div className="profileInformation">

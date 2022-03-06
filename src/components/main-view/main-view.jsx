@@ -4,7 +4,6 @@ import { connect } from 'react-redux';
 import { setMovies, setUser } from '../../actions/actions';
 import './main-view.scss';
 import { LoginView } from '../login-view/login-view';
-// import { MovieCard } from '../movie-card/movie-card';
 import { MovieView } from '../movie-view/movie-view';
 import { RegistrationView } from '../registration-view/registration-view';
 import { DirectorView } from '../director-view/director-view';
@@ -13,7 +12,6 @@ import { NavBarView } from '../navbar-view/navbar';
 import UserView from '../profile-view/profile-view'
 import { Navbar, Nav, Container, Row, Col } from 'react-bootstrap';
 import { BrowserRouter as Router, Route, Redirect } from "react-router-dom";
-// import { setMovies } from '../actions/actions';
 import MoviesList from '../movies-list/movies-list';
 
 
@@ -21,9 +19,7 @@ class MainView extends React.Component {
     constructor() {
         super();
         this.state = {
-            // movies: [],
             selectedMovie: null,
-            // user: null,
             favorites: []
         }
         this.getUser = this.getUser.bind(this)
@@ -108,38 +104,10 @@ class MainView extends React.Component {
             });
     }
 
-    // getUser() {
-    //     const user = localStorage.getItem("user");
-    //     const token = localStorage.getItem("token");
-    //     axios.get(`https://oscarsmyflixapp.herokuapp.com/users/${user}`, {
-    //         headers: { Authorization: `Bearer ${token}` },
-    //     })
-    //         .then((response) => {
-    //             this.setState({
-    //                 username: response.data.Username,
-    //                 password: response.data.Password,
-    //                 email: response.data.Email,
-    //                 birthday: response.data.Birthday,
-    //                 favorites: response.data.FavoriteMovies
-    //             });
-    //         })
-    //         .catch(function (error) {
-    //             console.log(error);
-    //         });
-    // }
-
-
     render() {
 
         let { movies } = this.props;
         const { username, password, email, birthday, favorites, user, register } = this.state;
-        //  if (!user) return <Row>
-        //     <Col>
-        //         <LoginView onLoggedIn={user => this.onLoggedIn(user)} />
-        //     </Col>
-        // </Row>
-        // if (movies.length === 0) return <div className="main-view" />;
-        console.log('!', movies[0])
 
         return (
             <Router>
@@ -190,12 +158,6 @@ class MainView extends React.Component {
                         }} />
                         <Route exact path="/genres/:name" render={({ match, history }) => {
 
-                            // get alll movies for a genre
-
-                            // 1. get a list of all movies
-                            // 2. determine the gennre for each movie
-                            // 3. keep only those moviess whose gennre iss our target genre
-
                             let targetGenreMovies = []
 
                             movies.forEach((movie) => {
@@ -204,7 +166,6 @@ class MainView extends React.Component {
                                 console.log('>', movieGenreName, targetGenreName)
 
                                 if (movieGenreName === targetGenreName) {
-                                    // if this is the case, then we have found a movie for target genre
                                     targetGenreMovies.push(movie)
                                 }
                             })

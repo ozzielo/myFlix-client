@@ -1,7 +1,6 @@
 import React from 'react';
 import PropTypes from "prop-types";
 import { MovieCard } from '../movie-card/movie-card';
-// import './genre-view.scss';
 import { Container, Row, Col, Button, Card } from 'react-bootstrap';
 
 
@@ -10,9 +9,6 @@ export class GenreView extends React.Component {
         const { movieData, genre, onBackClick } = this.props
 
         console.log(movieData)
-
-        // either we generate the list of movies here
-        // or we recieve it as a prop
 
         return (
             <Container>

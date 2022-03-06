@@ -57,7 +57,7 @@ export function RegistrationView(props) {
                 .then(response => {
                     const data = response.data;
                     console.log(data);
-                    window.open('/', '_self'); // the second argument '_self' is necessary so that the page will open in the current tab
+                    window.open('/', '_self');
                 })
                 .catch(e => {
                     console.log('error registering the user')
@@ -67,7 +67,7 @@ export function RegistrationView(props) {
         }
 
 
-        // props.onRegistration(username);
+
     };
 
     return (
@@ -143,28 +143,10 @@ export function RegistrationView(props) {
                 </Card>
             </Container>
         </div>
-        // <form>
-        //     <label>
-        //         Username:
-        //         <input type="text" value={username} onChange={e => setUsername(e.target.value)} />
-        //     </label>
-        //     <label>
-        //         Password:
-        //         <input type="password" value={password} onChange={e => setPassword(e.target.value)} />
-        //     </label>
-        //     <label>
-        //         Email:
-        //         <input type="email" value={email} onchange={e => setEmail(e.target.value)} />
-        //     </label>
-        //     <label>
-        //         Birthday:
-        //         <input type="date" value={birthday} onchange={e => setBirthday(e.target.value)} />
-        //     </label>
-        //     <button type="submit" onClick={handleSubmit}>Register</button>
-        // </form>
+
 
     );
 }
 RegistrationView.propTypes = {
-    // onRegistration: PropTypes.func.isRequired,
+
 };
